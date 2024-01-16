@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+
+    <title>Patient profile </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/profile_patient.css">
+
+    <link rel="shortcut icon" href="/img/cognitive.png" type="image/x-icon">
+
+    <link rel="shortcut icon" href="/img/cognitive.png" type="image/x-icon">
+
+    <style>
+
+        h3{
+            text-align: center;
+        }
+
+        #searchPatient{
+            margin-top: 5%;
+        }
+
+        #userData{
+          
+          width: 80%;
+          padding: 2% 3%;
+          display: block;
+          margin: auto;
+          margin-bottom: 5%;
+          background-color: cyan;
+          text-align: center;
+          border-radius: 20px;
+        
+            
+        }
+
+        #logoutBtn {
+            background-color: red;
+            width: 10%;
+            height: 5vh;
+            color: white;
+            display: block;
+            margin: auto;
+            margin-bottom: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-body">
+
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"> <a href="/aboutuspage.html" class="nav-item nav-link">About Us</a></li>
+                           
+
+                </ol>
+            </nav>
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                    class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4 id="userName">your Name</h4>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h4> Upload Report</h4>
+                                <input type="file">Upload Report
+
+                                <h4></h4>
+                            </li>
+
+                            <input id="searchPatient" placeholder="Search Patient" type="text">
+                        </ul>
+                    </div>
+                </div>
+
+                
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Gender</h6>
+                                </div>
+                                <div id="genderUser" class="col-sm-9 text-secondary">
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <div id="userEmail" href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                        data-cfemail="31575841715b445a5c44591f505d"></div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div id="phoneNo" class="col-sm-9 text-secondary">
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Age</h6>
+                                </div>
+                                <div id="userAge" class="col-sm-9 text-secondary">
+                                    (320) 380-4539
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Address</h6>
+                                </div>
+                                <div id="userAdd" class="col-sm-9 text-secondary">
+                                    Bay Area, San Francisco, CA
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <h3>Patient Data</h3>
+
+    <div id="cardFlex">
+    <img onclick="prevPatient()" id="leftImg" src="img/left-arrow.png" alt="">
+
+    <div id="userDataCard">
+
+        <h3 id="patientNo"></h3>
+
+        <p class="patientp" id="patientName"></p>
+        <p class="patientp" id="patientAge"></p>
+        <p class="patientp" id="patientGender"></p>
+        <p class="patientp" id="patientWeight"></p>
+         
+        <h5>Patient Scores</h5>
+
+        <p class="patientp" id="game1Score"></p>
+
+        <p class="patientp" id="game2Score"></p>
+
+        <p class="patientp" id="game3Score"></p>
+
+        <h5>Contact</h5>
+        <a class="patientp" id="patientEmail">✉️ Email</a>
+        <a class="patientp" id="patientContact">📞 Phone No</a>
+
+    </div>
+
+
+
+    <img onclick="nextPatient()" id="rightImg" src="img/right-arrow.png" alt="">
+</div>
+
+
+<button onclick="logoutDoctor()" id="logoutBtn">Logout</button>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript">
+
+
+
+    </script>
+    <script  src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-storage.js"></script>
+    
+
+    <script src="/js/doctord.js"></script>
+</body>
+
+</html>
