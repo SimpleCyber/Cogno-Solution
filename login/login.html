@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEB Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<form id="loginForm"></form>
+	<form>
+		<div class="card">
+		  <img class="User_img" src="images/User.png" alt="User">
+		  <div class="container">
+		    <h2><b>Sign In Form</b></h2>
+		    User Name:
+			<br>
+			 <input class="textbox"  id="loginEmail" type="text" name="username" placeholder="Enter Your User Name" size="35" required>
+		    <br>
+
+		    Password: 
+			<br>
+			<input class="textbox" id="loginPassword" type="password" name="username" placeholder="Enter The Password" size="35" required>
+		    <p>Enter Valid Details <br><br>
+
+		    <a href="trail.html">Sign up newcomers.!</a>
+		    <br>
+		    <input class="btn_signin" type="button" onclick="loginUser()" name="signin" value="Login" style="border-radius: 30px;">
+		    <input class="btn_clear" type="reset" name="clear" value="Clear"  style="border-radius: 30px;">
+		  </div>
+		</div>
+	</form>
+</form>
+
+<script  src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+
+
+<script src="/login/login.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WEB Form</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+ 
+	<form>
+		<div class="card">
+		  <div class="container">
+                      <h2 align="center"><b><u>Enter User Details</u></b></h2>
+		    <br>
+
+
+
+			<form id="registrationForm"></form>   <!--1-->
+			Email ID :<br>
+            <input class="textbox" placeholder="Enter Your Email"  id="email" style="width: 313px;" >
+
+			 <label for="pwd">Create password:</label>
+			 <input type="password" id="password" name="password" required>
+			
+			Full Name :<input class="textbox" type="text" id="username" name="name" placeholder="Enter Your Full Name" size="35">
+			
+			<br>
+			<br>
+
+
+			<select class="textbox"  id="profession" name="Qualifications" style="width: 322px">
+				<option value="user">User</option>			
+			</select>
+
+			<br>
+			<br>
+			Age :
+			<br><input class="textbox" id="age" type="text" id="age" name="name" placeholder="Enter Your Age" size="35">
+			<br>
+			Weight :
+			<br><input class="textbox"  type="text" id="weight" name="name" placeholder="Enter Your Weight" size="35">
+			<br>
+
+			
+			 <br> 
+
+			 <br>
+			  <label for="pwd">Confirm password:</label>
+			 <input type="password" id="password2" name="pwd" required>
+			 <br>  <br>
+			<br>
+			<input class="textbox" id="address" placeholder="Enter Your Address" style="width: 313px;">
+			<br>
+		
+		    Mobile No: <input class="textbox" id="moblileno" type="text" name="moblieno" placeholder="Enter Your Mobile No" size="35">
+		    <br>
+
+			<select name="gender" id="gender">
+				<option value="Male">Select Gender</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+           <br>
+
+		
+			<input class="btn_signin" id="register" onclick="registerUser()" type="button" name="signUp" value="Sign Up">	
+			
+          
+
+
+		</div>
+	</div>
+
+      
+
+</form>
+
+</form>  	
+
+<script  src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+ <script src="/login/patient.js"></script>
+</body>
+
+
+</html>

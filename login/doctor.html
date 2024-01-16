@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>WEB Form</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+	<form id="registrationForm"></form>
+
+	<form>
+		<div class="card">
+			<div class="container">
+				<h2 align="center"><b><u>Enter Doctor Details</u></b></h2>
+
+
+
+				Username :<br>
+				<input class="textbox" type="text" id="username" name="name" placeholder="Enter Your Full Name"
+					size="35">
+				<br>
+
+				<br>
+				<select name="gender" id="gender">
+					<option value="Male">Select Gender</option>
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
+				</select>
+				<br>
+
+
+
+
+				<br>
+				Address :
+				<input class="textbox" id="address" placeholder="Enter Your Address" name="address"
+					style="width: 313px;"></textarea>
+				<br>
+
+				<br>
+				<label for="pwd">Confirm password:</label>
+				<input type="password" id="password2" name="pwd" required>
+				<br>
+				<br>
+
+
+
+				<select class="textbox" id="Country" name="sel_Country" style="width: 322px">
+					<option value="Defult">Select Your Country</option>
+					<option value="Sri Lanka">Sri Lanka</option>
+					<option value="India">India</option>
+					<option value="Japan">Japan</option>
+					<option value="China">China</option>
+					<option value="US">US</option>
+					<option value="Koria">Koria</option>
+					<option value="Moldives">Moldives</option>
+					<option value="UK">UK</option>
+					<option value="Nepal">Nepal</option>
+					<option value="Mexico">Mexico</option>
+				</select>
+				<br>
+
+
+				<br>
+
+				<select class="textbox" id="profession" name="Qualifications" style="width: 322px">
+					<option value="Defult">Qualifications</option>
+
+					<option value="councelar">councelar</option>
+					<option value="physcatrist">physcatrist</option>
+					<option value="therapist">therapist</option>
+
+				</select>
+				<br>
+
+
+
+				Email ID :<br>
+				<input class="textbox" placeholder="Enter Your Email" id="email" style="width: 313px;">
+				<br>
+
+				<br>
+				<label for="pwd">Create password:</label>
+				<input type="password" id="password" name="pwd" required>
+				<br>
+				Mobile No:<br>
+				<input class="textbox" id="moblileno" type="text" name="moblieno" placeholder="Enter Your Mobile No"
+					size="35">
+				<br>
+
+				<button type="button" onclick="registerUser()">Register</button>
+
+
+
+			</div>
+		</div>
+	</form>
+
+
+	</form>
+
+	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+	<script src="/login/doctor.js"></script>
+	<!-- <script>
+	function registerUser() {
+		var patientID = document.getElementById('drID').value;
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+		var password2 = document.getElementById('password2').value;
+		var gender = document.getElementById('gender').value;
+		
+		var email = document.getElementById('email').value;
+		var moblileno = document.getElementById('moblileno').value;
+		var address = document.getElementById('address').value;
+		var profession=document.getElementById('profession').value;
+		var Country=document.getElementById('Country').value;
+		
+	
+		
+	
+		// Store user data in localStorage
+		localStorage.setItem(username, JSON.stringify({
+		  username:username,
+		  password: password,
+		  password2:password2,
+		  gender: gender,
+		  profession:profession,
+		  email: email,
+		  patientID:patientID,
+		  moblileno:moblileno,
+		  address:address,
+		  Country:Country
+	
+		}));
+	
+	
+	  }
+	
+	</script> -->
+	<!-- <script type="module">
+	
+	
+		function loginBtn(){
+
+		
+		//----- Login code start    
+		document.getElementById("login").addEventListener("click", function() {
+			var email =  document.getElementById("login_email").value;
+			var password = document.getElementById("login_password").value;
+	
+			signInWithEmailAndPassword(auth, email, password)
+			.then((userCredential) => {
+			  // Signed in 
+			  const user = userCredential.user;
+			  console.log(user);
+			  alert(user.email+" Login successfully!!!");
+			  document.getElementById('logout').style.display = 'block';
+			  // ...
+			})
+			.catch((error) => {
+			  const errorCode = error.code;
+			  const errorMessage = error.message;
+			  console.log(errorMessage);
+			  alert(errorMessage);
+			});                 
+		});
+
+	}
+		//----- End
+	
+
+		function logout(){
+
+		
+		//----- Logout code start   
+		document.getElementById("logout").addEventListener("click", function() {
+			signOut(auth).then(() => {
+				// Sign-out successful.
+				console.log('Sign-out successful.');
+				alert('Sign-out successful.');
+				document.getElementById('logout').style.display = 'none';
+			  }).catch((error) => {
+				// An error happened.
+				console.log('An error happened.');
+			  });               
+		});
+		//----- End
+		}
+	  </script>
+	 -->
+
+
+
+
+
+
+
+
+</body>
+
+</html>
