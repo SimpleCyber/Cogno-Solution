@@ -1,0 +1,91 @@
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    <!-- my css file-->
+    <link rel="stylesheet" type="text/css" href="videochat2.css">
+  <script src='https://meet.jit.si/external_api.js'></script>
+</head>
+<body>
+<div class="thebody text-center">
+<nav class="navbar navbar-dark" style="background-color:shd; box-shadow: 2px 4px rgba(226, 203, 242,0.5)">
+  <span class="navbar-brand" style="font-size: 40px; color:#9864bd">Video Calling</span>
+</nav>
+
+
+<div class="container mt-4">
+    <div class="schedule-box">
+        <h3>Doctor's Schedule</h3>
+        <p>Available on:</p>
+        <ul>
+            <li>Monday: 9:00 AM - 11:00 AM</li>
+            <li>Tuesday: 10:00 AM - 12:00 PM</li>
+            <li>Wednesday: 9:30 AM - 12:30 PM</li>
+            <li>Thursday: 10:30 AM - 12:30 PM</li>
+            <li>Friday: 9:00 AM - 11:00 AM</li>
+        </ul>
+    </div>
+
+   
+</div>
+
+<div class="container align-items-center " style="margin-top: 15%;">
+<div class="transbox text-center"><br><br>
+
+<button id="start" class="btn btn-light btn-lg" type="button"><b>Start a new meeting</b></button>
+</div>
+</div>
+
+
+
+<div id="jitsi-container" class="container align-items-center">
+</div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+var button = document.querySelector('#start');
+var container = document.querySelector('#jitsi-container');
+var api = null;
+
+button.addEventListener('click', () => {
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var stringLength = 30;
+
+    function pickRandom() {
+    return possible[Math.floor(Math.random() * possible.length)];
+    }
+
+var randomString = Array.apply(null, Array(stringLength)).map(pickRandom).join('');
+
+    var domain = "meet.jit.si";
+    var options = {
+        "roomName": randomString,
+        "parentNode": container,
+        "width": 600,
+        "height": 600,
+    };
+    api = new JitsiMeetExternalAPI(domain, options);
+});
+
+</script>
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

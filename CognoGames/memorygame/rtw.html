@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Last Cities | BrainStorm</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="game-css.css" type="text/css">
+    <link rel="stylesheet" href="../Alert/alertcss.css">
+    <script src="games-js.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <script type="text/javascript">
+        var count = 0;
+        var fix = 0;
+        var noOfClick = 0;
+        var result = [2, 3, 5, 6, 1, 2, 3, 6, 1, 3, 5, 6, 1, 3, 4, 5];
+
+        function flip_task() {
+            document.getElementById('cities-list').classList.add('off');
+            document.getElementById('task').classList.add('on');
+        }
+
+        var task = 1;
+        function flip_option(check) {
+            var ans = [0, 1, 1, 0];
+            if (check ==  ans[task - 1]){
+                document.getElementById('flip-img').classList.add("on");
+                document.getElementById('correct').classList.add("on");
+                setTimeout(function(){
+                    document.getElementById('correct').classList.remove("on");
+                    document.getElementById('flip-img').classList.remove("on");
+                }, 200);
+            }
+            else {
+                document.getElementById('flip-img').classList.add("on");
+                document.getElementById('wrong').classList.add("on");
+                setTimeout(function(){
+                    document.getElementById('wrong').classList.remove("on");
+                    document.getElementById('flip-img').classList.remove("on");
+                }, 200);
+            }
+            document.getElementById('task').classList.remove('on');
+            document.getElementById('option-list').classList.add('on');
+            task ++;
+            document.getElementById('task-img').src = "rtw-img/Task" + task + ".png";
+        }
+
+        var cities_list = 1;
+        function next_list(check) {
+            if (cities_list < 4){
+                document.getElementById('option-list').classList.remove('on');
+                document.getElementById('cities-list').classList.remove('off');
+
+                if (cities_list == 3){document.getElementById('end-btn').innerHTML = "END";}
+            }
+            else {
+                document.getElementById('score1').innerHTML = "" + count;
+                document.getElementById('scoreDB').value = count;
+                if(Number(localStorage.getItem("game2Score")) < count ){
+                    localStorage.setItem("game2Score", count);
+                }
+                document.getElementById('main-screen').style.display = "none";
+                document.getElementById('end-screen').classList.add("on");
+            }
+            cities_list ++;
+            document.getElementById('list-no').innerHTML = cities_list + "/4";
+            document.getElementById('image').src = "rtw-img/Picture" + cities_list +".png";
+
+            var i;
+            for (i =1; i<=6; i++){
+                document.getElementById('image' + i).src = "rtw-img/Picture" + cities_list + "-op" + i + ".png";
+                document.getElementById('image' + i).classList.remove('off');
+            }
+            if (check == 1){
+                fix = fix + 4;
+                noOfClick = 0;
+            }
+        }
+
+        function ansCheck(ans) {
+            var flag = 0;
+            var i;
+            for (i =fix; i<fix + 4; i++){
+                if (ans == result[i]){
+                    flag = 1;
+                    break;
+                }
+                else {flag = 0;}
+            }
+            if (flag == 1){
+                document.getElementById('flip-img').classList.add("on");
+                document.getElementById('correct').classList.add("on");
+                setTimeout(function(){
+                    document.getElementById('correct').classList.remove("on");
+                    document.getElementById('flip-img').classList.remove("on");
+                }, 300);
+                document.getElementById('image' + ans).classList.add('off');
+
+                if (count > 750){count = count + 150;}
+                else if (count > 350 && count < 750){count = count + 100;}
+                else {count = count + 50;}
+                document.getElementById('score').innerHTML = "" + count;
+            }
+            else {
+                document.getElementById('flip-img').classList.add("on");
+                document.getElementById('wrong').classList.add("on");
+                setTimeout(function(){
+                    document.getElementById('wrong').classList.remove("on");
+                    document.getElementById('flip-img').classList.remove("on");
+                }, 300);
+                document.getElementById('image' + ans).classList.add('off');
+            }
+
+            noOfClick++;
+            if (noOfClick == 4){
+                fix = fix + 4;
+                noOfClick = 0;
+                next_list(0);
+            }
+        }
+
+        function end_screen() {
+            document.getElementById('score1').innerHTML = "000";
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var lastScore =  $.cookie("lastCities");
+            $("#lastScore").text(lastScore);
+
+            var per =  $.cookie("memory");
+            $("#per").text(per);
+        });
+    </script>
+
+</head>
+<body style="background-color: #2c3e50">
+
+<div id="start-screen">
+    <div class="row">
+        <div class="col half-wider"><h1>The Last Cities <span class="info">(MEMORY)</span></h1></div>
+        <div class="col half-narrow">
+            <a id="ON" class="btn-circle hoverable" onclick="video_on()"><i class="material-icons">&#xE88E;</i></a>
+            <a id="OFF" class="btn-circle hoverable off" onclick="video_off()"><i class="material-icons">&#xE5C4;</i></a>
+        </div>
+    </div>
+
+    <video id="video" width="500" height="415" controls>
+        <source src="true-color-img/Rec.mp4" type="video/mp4">
+    </video>
+
+    <div id="info" class="card">
+        <div class="row">
+            <div class="col half">
+                <span class="material-icons blue-text">&#xE838;</span>
+                <span id="lastScore" class="num">1250</span>
+                <span class="info black-text">LAST SCORE</span>
+            </div>
+            <div class="col half">
+                <span class="material-icons blue-text">&#xE922;</span>
+                <span id="per" class="num">50%</span>
+                <span class="info black-text">MEMORY</span>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="row black-text left-align">
+            <span class="num"> GAME BENEFIT :</span>
+            <ul>
+                <li>Exercises your ability to temporarily hold information in memory.</li>
+                <li>Exercises your multitasking and task-switching skills.</li>
+            </ul>
+        </div>
+
+        <div class="row black-text left-align">
+            <span class="num"> Instructions <span class="info black-text">(click on info button for video)</span> :</span>
+            <ol>
+                <li>Memorize the cities on the board.</li>
+                <li>You will be asked to perform an unrelated task.</li>
+                <li>Recall as many of the original cities as possible.</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <a class="btn start hoverable" onclick="startRTW()">PLAY GAME</a>
+</div>
+
+<div id="main-screen" class="off">
+    <div class="row">
+        <span class="timer">
+            <a id="button-stop" class="btn pause left material-icons" onclick="pauseRTW()">&#xE034;</a>
+            <a id="button-play" class="btn pause left material-icons off" onclick="playRTW()">&#xE037;</a>
+            <span id="list-no" class="num white-text" style="display: inline-block">1/4</span>
+            <a id="score" class="btn score right">000</a>
+        </span>
+    </div>
+
+    <div id="wait-screen" class="card waiting">
+        <div class="waring">
+            <span class="waring-i"></span>
+            <span class="waring-dot"></span>
+        </div>
+        <h1 class="black-text">Are you sure to exit?</h1>
+        <span class="num black-text">You will not able to record your score!</span>
+        <div class="row" style="margin-top: 40px">
+            <a class="btn green" onclick="playRTW()">No</a>
+            <a class="btn red" onclick="end_screen(); flip_endCard();">Yes</a>
+        </div>
+    </div>
+
+    <div id="flip-img" class="card waiting transparent">
+        <a id="correct" class="btn-circle check green"><i class="material-icons">&#xE876;</i></a>
+        <a id="wrong" class="btn-circle check red"><i class="material-icons">&#xE5CD;</i></a>
+    </div>
+
+    <div id="cities-list">
+        <img id="image" src="rtw-img/Picture1.png">
+        <br/>
+        <a class="btn ready green hoverable" onclick="flip_task()">I'M READY</a>
+    </div>
+
+    <div id="task" class="off">
+        <img id="task-img" src="rtw-img/Task1.png">
+        <div class="center-align">
+            <a class="btn red hoverable" onclick="flip_option(0)">NO</a>
+            <a class="btn green hoverable" onclick="flip_option(1)">YES</a>
+        </div>
+    </div>
+
+    <div id="option-list" class="center-align off">
+        <img id="info-img1" class="rtw-info-img" src="rtw-img/info-img1.png">
+        <div class="card-option">
+            <img id="image1" class="rtw-img" src="rtw-img/Picture1-op1.png" onclick="ansCheck(1)">
+            <img id="image2" class="rtw-img" src="rtw-img/Picture1-op2.png" onclick="ansCheck(2)">
+            <img id="image3" class="rtw-img" src="rtw-img/Picture1-op3.png" onclick="ansCheck(3)">
+            <img id="image4" class="rtw-img" src="rtw-img/Picture1-op4.png" onclick="ansCheck(4)">
+            <img id="image5" class="rtw-img" src="rtw-img/Picture1-op5.png" onclick="ansCheck(5)">
+            <img id="image6" class="rtw-img" src="rtw-img/Picture1-op6.png" onclick="ansCheck(6)">
+        </div>
+        <img id="info-img" class="rtw-info-img" src="rtw-img/info-img.png">
+        <a id="end-btn" class="btn ready green hoverable" onclick="next_list(1)">SKIP</a>
+    </div>
+
+</div>
+
+<div id="end-screen" class="off">
+    <div class="card">
+        <div class="row">
+            <span id="best-score" class="num green-text off">BEST NEW SCORE</span>
+            <span class="material-icons blue-text">&#xE8D0;</span>
+            <h1 class="black-text" id="score1" style="margin: 0">000</h1>
+            <span class="info black-text">YOUR SCORE</span>
+            <div class="divider"></div>
+
+            <div class="card bg-green">
+                <div class="row left-align">
+                    <span class="num white-text">SUCCESS RATE :</span>
+                    <ul><span class="info">Your success rate is 72%. Well done!
+                            Only 18% of the users at this rank do this well.</span></ul>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+        </div>
+        <div class="row">
+            <form action="/game.html" method="">
+                <input name="gameId" type="hidden" value="lastcities">
+                <input name="score" id="scoreDB" type="hidden" value="0">
+               <input  class="btn continue hoverable" type="submit" value="Continue">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

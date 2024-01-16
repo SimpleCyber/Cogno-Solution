@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rush Back | BrainStorm</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="game-css.css" type="text/css">
+    <link rel="stylesheet" href="../Alert/alertcss.css">
+    <script src="games-js.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <script type="text/javascript">
+        var i = 1;
+        var count = 0;
+        var randomNum = 0;
+        var previousRandomNum = 0;
+        var ansCheck = 0;
+        var img_value = [1, 2, 2, 2, 3, 3, 4, 5, 5, 5, 5, 1, 1, 4, 4, 4, 4, 5, 3, 3, 3, 2, 2, 1, 1, 1, 4, 5, 5, 5];
+        function checker(check) {
+            alert(img_value[previousRandomNum] + " " + img_value[randomNum]);
+            if (i <= 30) {
+                if (i === 1){
+                    document.getElementById('No').style.display = "inline-block";
+                    document.getElementById('Yes').innerHTML = "YES";
+                    i++;
+                }
+                else {
+                    if (img_value[previousRandomNum] === img_value[randomNum])
+                        ansCheck = 1;
+                    else
+                        ansCheck = 0;
+
+                    if (check === ansCheck) {
+                        if (count > 750){count = count + 150;}
+                        else if (count > 350 && count < 750){count = count + 100;}
+                        else {count = count + 50;}
+                        document.getElementById('flip-img').classList.add("on");
+                        document.getElementById('correct').classList.add("on");
+                        setTimeout(function(){
+                            document.getElementById('correct').classList.remove("on");
+                            document.getElementById('flip-img').classList.remove("on");
+                        }, 300);
+                    }
+                    else {
+                        document.getElementById('flip-img').classList.add("on");
+                        document.getElementById('wrong').classList.add("on");
+                        setTimeout(function(){
+                            document.getElementById('wrong').classList.remove("on");
+                            document.getElementById('flip-img').classList.remove("on");
+                        }, 300);
+                    }
+                    i++;
+                }
+            }
+
+            previousRandomNum = randomNum;
+            randomNum = getRandomInt(1,29);
+            if (i <= 30) {
+                if (count === 0){document.getElementById('score').innerHTML = "000";}
+                else {document.getElementById('score').innerHTML = "" + count;}
+                document.getElementById('score1').innerHTML = "" + count;
+                document.getElementById('scoreDB').value = count;
+                if(Number(localStorage.getItem("game3Score")) < count ){
+                    localStorage.setItem("game3Score", count);
+                }
+                document.getElementById('image').src = "rush-back-img/Picture" + (randomNum + 1) + ".png";
+            }
+            if (i === 31) {
+                document.getElementById('score1').innerHTML = "" + count;
+                document.getElementById('scoreDB').value = count;
+                document.getElementById('main-screen').style.display = "none";
+                document.getElementById('end-screen').classList.add("on");
+
+                var score = 0;
+                if (score <= count){
+                    document.getElementById('best-score').classList.add("on");
+                }
+            }
+        }
+
+        function end_screen() {
+            document.getElementById('score1').innerHTML = "000";
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var lastScore =  $.cookie("rushBack");
+            $("#lastScore").text(lastScore);
+
+            var per =  $.cookie("focus");
+            $("#per").text(per);
+        });
+    </script>
+
+</head>
+<body style="background-color: #441d61">
+
+<div id="start-screen">
+    <div class="row">
+        <div class="col half-wider"><h1>Rush Back <span class="info">(Focus)</span></h1></div>
+        <div class="col half-narrow">
+            <a id="ON" class="btn-circle hoverable" onclick="video_on()"><i class="material-icons">&#xE88E;</i></a>
+            <a id="OFF" class="btn-circle hoverable off" onclick="video_off()"><i class="material-icons">&#xE5C4;</i></a>
+        </div>
+    </div>
+
+    <video id="video" width="500" height="415" controls>
+        <source src="true-color-img/Rec.mp4" type="video/mp4">
+    </video>
+
+    <div id="info" class="card">
+        <div class="row">
+            <div class="col half">
+                <span class="material-icons blue-text">&#xE838;</span>
+                <span id="lastScore" class="num">7777</span>
+                <span class="info black-text">LAST SCORE</span>
+            </div>
+            <div class="col half">
+                <span class="material-icons blue-text">&#xE922;</span>
+                <span id="per" class="num">50%</span>
+                <span class="info black-text">FOCUS</span>
+            </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="row black-text left-align">
+            <span class="num"> GAME BENEFIT :</span>
+            <ul>
+                <li>Stimulates your ability to maintain focus and avoid distractions.</li>
+                <li>Challenges your pattern detection abilities.</li>
+                <li>Exercises your ability to temporarily hold information im memory.</li>
+            </ul>
+        </div>
+
+        <div class="row black-text left-align">
+            <span class="num"> Instructions <span class="info black-text">(click on info button for video)</span> :</span>
+            <ol>
+                <li>Memorize the card.</li>
+                <li>Does the current card match the card that came before it?</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <a id="button-start" class="btn start hoverable">PLAY GAME</a>
+</div>
+
+<div id="main-screen" class="off">
+    <div class="row">
+        <span class="timer">
+            <a id="button-stop" class="btn pause left material-icons">&#xE034;</a>
+            <a id="button-play" class="btn pause left material-icons off">&#xE037;</a>
+            00:<span id="seconds">59</span>
+            <a id="score" class="btn score right">000</a>
+        </span>
+    </div>
+
+    <div id="wait-screen" class="card waiting">
+        <div class="waring">
+            <span class="waring-i"></span>
+            <span class="waring-dot"></span>
+        </div>
+        <h1 class="black-text">Are you sure to exit?</h1>
+        <span class="num black-text">You will not able to record your score!</span>
+        <div class="row" style="margin-top: 40px">
+            <a id="button-no" class="btn green">No</a>
+            <a class="btn red" onclick="end_screen(); flip_endCard();">Yes</a>
+        </div>
+    </div>
+
+    <div id="flip-img" class="card waiting transparent">
+        <a id="correct" class="btn-circle check green"><i class="material-icons">&#xE876;</i></a>
+        <a id="wrong" class="btn-circle check red"><i class="material-icons">&#xE5CD;</i></a>
+    </div>
+
+    <img id="image" src="rush-back-img/Picture1.png">
+    <br/>
+    <div class="center-align">
+        <a id="No" class="btn red off" onclick="checker(0)">NO</a>
+        <a id="Yes" class="btn green" onclick="checker(1)">OK</a>
+    </div>
+
+</div>
+
+
+
+<div id="end-screen" class="off">
+    <div class="card">
+        <div class="row">
+            <span id="best-score" class="num green-text off">BEST NEW SCORE</span>
+            <span class="material-icons blue-text">&#xE8D0;</span>
+            <h1 class="black-text" id="score1" style="margin: 0">000</h1>
+            <span class="info black-text">YOUR SCORE</span>
+            <div class="divider"></div>
+
+            <div class="card bg-green">
+                <div class="row left-align">
+                    <span class="num white-text">SUCCESS RATE :</span>
+                    <ul><span class="info">Your success rate is 72%. Well done!
+                            Only 18% of the users at this rank do this well.</span></ul>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+        </div>
+        <div class="row">
+            <form action="/game.html" method="">
+                <input name="gameId" type="hidden" value="lastcities">
+                <input name="score" id="scoreDB" type="hidden" value="0">
+               <input  class="btn continue hoverable" type="submit" value="Continue">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
