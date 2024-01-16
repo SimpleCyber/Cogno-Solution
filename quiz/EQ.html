@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotional Quotient Test</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style>
+  body {
+    background-color: #FFFAFA;
+    color: #2F4F4F;
+  }
+  .container {
+    border: 1px solid #87CEFA;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  h2 {
+    color: #5F9EA0;
+  }
+  .question-container p {
+    color: #2F4F4F;
+  }
+  .btn-primary {
+    background-color: #FFDEAD;
+    border-color: #FFDEAD;
+    color: #696969;
+  }
+  .btn-primary:hover {
+    background-color: #F08080;
+  }
+  .scale label {
+    color: #2F4F4F;
+  }
+  #result {
+    color: #5F9EA0;
+  }
+</style>
+</head>
+<body>
+<div class="container my-4">
+  <h2 class="text-center mb-4">Emotional Quotient Test</h2>
+  <form id="eqTest">
+    <!-- Questions will be generated here -->
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </form>
+  <div id="result" class="mt-4">
+    <h3>Your Emotional Quotient Report:</h3>
+    <p id="eqScore"></p>
+  </div>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  const questions = [
+    "bbbbI am very good at identifying the emotions I am feeling",
+    "I can often tell how people feel just by looking at them.",
+    "I am very good at identifying the emotions I am feeling",
+    "I sometimes find it hard to figure out how people around me are feeling",
+    "I have control over my emotions",
+    "I regularly donate to charities that help people in need",
+    "I really enjoy socializing",
+    "I don't really like talking about the way I feel",
+    "I consider myself extremely lucky to have the life I do",
+    "I am highly aware of how I am feeling (my moods, emotions, etc.)",
+    "I am very good at reading body language",
+    "My emotions are under control",
+    "I am very affected by advertisements about animal cruelty",
+    "I am confident in social situations",
+    "I find it hard to put how I am feeling into words",
+    "I constantly feel grateful for the life I have",
+    "I use very specific words to talk about how I am feeling",
+    "I have an acute sense of how people around me are feeling",
+    "I often get caught up in the heat of the moment",
+    "I am easily upset by the pain of other people",
+    "I consider myself to be charming",
+    "I use very specific words to talk about how I am feeling",
+    "I often think about how fortunate I am",
+    "I recognize emotions the moment I feel them",
+    "I am very good at reading nonverbal cues",
+    "I move on very quickly from negative emotions and bad moods",
+    "I often feel compelled to act when I see someone suffering",
+    "I am very good at getting people to laugh",
+    "Talking about how I am feeling usually improves my mood",
+    "I often feel compelled to act when I see someone suffering",
+    "I find it hard to put how I am feeling into words",
+    "I am confident in social situations.", 
+  ];
+
+  const form = document.getElementById('eqTest');
+  const result = document.getElementById('result');
+  const eqScore = document.getElementById('eqScore');
+
+  // Generating questions dynamically
+  questions.forEach((question, index) => {
+    const questionContainer = document.createElement('div');
+    questionContainer.classList.add('question-container');
+    questionContainer.innerHTML = `
+      <p>${question}</p>
+      <div class="scale">
+        <label>
+          <input type="radio" name="question${index}" value="1" required> Inaccurate
+        </label>
+        <label>
+          <input type="radio" name="question${index}" value="2"> Neutral
+        </label>
+        <label>
+          <input type="radio" name="question${index}" value="3"> Accurate
+        </label>
+      </div>
+    `;
+    form.insertBefore(questionContainer, form.firstChild); // Insert before the submit button
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Calculate the score
+    let score = 0;
+    const formData = new FormData(form);
+    for (let value of formData.values()) {
+      score += parseInt(value);
+    }
+    // Display the result
+    eqScore.textContent = 'Your Emotional Quotient score is: ' + score;
+    result.style.display = 'block';
+  });
+</script>
+</body>
+</html>

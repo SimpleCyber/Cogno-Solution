@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Intelligence Test</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<style>
+  body {
+    background-color: #FFFAFA;
+    color: #2F4F4F;
+  }
+  .container {
+    border: 1px solid #87CEFA;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  h2 {
+    color: #5F9EA0;
+  }
+  .question-container p {
+    color: #2F4F4F;
+  }
+  .btn-primary {
+    background-color: #FFDEAD;
+    border-color: #FFDEAD;
+    color: #696969;
+  }
+  .btn-primary:hover {
+    background-color: #F08080;
+  }
+  .scale label {
+    color: #2F4F4F;
+  }
+  #result {
+    color: #5F9EA0;
+  }
+</style>
+</head>
+<body>
+<div class="container my-4">
+  <h2 class="text-center mb-4">Social Intelligence Test</h2>
+  <form id="siTest">
+    <!-- Questions will be generated here -->
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+  </form>
+  <div id="result" class="mt-4">
+    <h3>Your Social Intelligence Report:</h3>
+    <p id="siScore"></p>
+  </div>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  const questions = [
+    "I find it easy to initiate conversations with strangers.",
+    "I can quickly understand people's emotions just by listening to their tone of voice.",
+    "I am good at resolving conflicts and disagreements among my friends or colleagues.",
+    "I often consider how my actions affect others before making decisions.",
+    "I enjoy working in teams and collaborating with others.",
+    "I am attentive to nonverbal cues like body language and facial expressions.",
+    "I can easily put myself in other people's shoes and see things from their perspective.",
+    "I often take the initiative to help others without being asked.",
+    "I am skilled at building and maintaining relationships with a wide range of people.",
+    "I can adapt my communication style to effectively interact with different personality types.",
+    "I can sense when someone is feeling uncomfortable in a social situation.",
+    "I am a good listener and make others feel heard and understood.",
+    "I often engage in activities that promote social bonding and community involvement.",
+    "I am sensitive to the needs and feelings of others and am willing to offer support.",
+    "I am comfortable in unfamiliar social settings and can strike up conversations with ease.",
+    "I am skilled at diffusing tense situations and promoting a positive atmosphere.",
+    "I can read social dynamics and hierarchies within groups accurately.",
+    "I tend to avoid behaviors that might hurt or offend others.",
+    "I can mediate conflicts between friends or coworkers effectively.",
+    "I am good at recognizing and appreciating the strengths and talents of others."
+  ];
+
+  const form = document.getElementById('siTest');
+  const result = document.getElementById('result');
+  const siScore = document.getElementById('siScore');
+
+  // Generating questions dynamically
+  questions.forEach((question, index) => {
+    const questionContainer = document.createElement('div');
+    questionContainer.classList.add('question-container');
+    questionContainer.innerHTML = `
+      <p>${question}</p>
+      <div class="scale">
+        <label>
+          <input type="radio" name="question${index}" value="1" required> Inaccurate
+        </label>
+        <label>
+          <input type="radio" name="question${index}" value="2"> Neutral
+        </label>
+        <label>
+          <input type="radio" name="question${index}" value="3"> Accurate
+        </label>
+      </div>
+    `;
+    form.insertBefore(questionContainer, form.firstChild); // Insert before the submit button
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Calculate the score
+    let score = 0;
+    const formData = new FormData(form);
+    for (let value of formData.values()) {
+      score += parseInt(value);
+    }
+    // Display the result
+    siScore.textContent = 'Your Social Intelligence score is: ' + score;
+    result.style.display = 'block';
+  });
+</script>
+</body>
+</html>

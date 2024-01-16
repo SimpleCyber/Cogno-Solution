@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
+/* Set a background color and improve font smoothing */
+body {
+    background: #f8f8f8;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.profile-buttons{
+    text-align: center;
+    margin-top: 5px;
+}
+
+
+/* Apply a box-sizing rule globally */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+#patient {
+    background-color:rgb(56, 221, 56);
+    
+    border: 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+#patient:hover{
+    background-color: #2980b9;
+}
+#patient:active {
+    background-color: #2070a0;
+  }
+  #patient.clicked{
+    background-color:#5cf26d ;
+  }
+
+  #doctor {
+    background-color:rgb(56, 221, 56);
+    
+    border: 2px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  #doctor.clicked{
+    background-color:#5cf26d
+  }
+#doctor:hover{
+    background-color: #2980b9;
+}
+#doctor:active {
+    background-color: #2070a0;
+  }
+/* Customize the input field */
+.custom-field {
+    position: relative;
+    font-size: 16px; /* Increased font size for better readability */
+    margin-top: 10px; /* Slightly increased top margin */
+}
+
+.custom-field input {
+    padding: 12px;
+    width: 300px;
+    font-size: 14px;
+    border-radius: 5px; /* Rounded corners for a modern look */
+    border: 1px solid #ccc; /* Softer border color */
+    outline-color: deepskyblue;
+    transition: border 0.3s ease, outline-color 0.3s ease;
+}
+
+.custom-field .placeholder {
+    position: absolute;
+    left: 12px;
+    top: calc(50% + 10px);
+    transform: translateY(-50%);
+    color: #999; /* Softer gray for the placeholder text */
+    transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+.custom-field input:valid + .placeholder,
+.custom-field input:focus + .placeholder {
+    top: 5px;
+    font-size: 5px;
+   
+    color: #333; /* Darker text color */
+    padding: 5px;
+    background: #fff; /* White background for better contrast */
+    border: 1px solid deepskyblue; /* Highlight the border when focused */
+}
+
+/* Style the message and success elements */
+.message {
+    font-size: 48px; /* Reduced font size for better readability */
+    color: steelblue;
+
+    letter-spacing: 2px; /* Add letter spacing for a modern touch */
+}
+
+.success {
+    font-size: 20px; /* Increased font size for emphasis */
+    margin-top: 15px;
+    color: seagreen;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+
+
