@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Cogno Solutions/title>
+	<title>Cogno Solutions</title>
 	<link rel="stylesheet" href="style.css">
 
 </head>
@@ -108,96 +108,7 @@
 	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
 
 	<script src="login/doctor.js"></script>
-	<!-- <script>
-	function registerUser() {
-		var patientID = document.getElementById('drID').value;
-		var username = document.getElementById('username').value;
-		var password = document.getElementById('password').value;
-		var password2 = document.getElementById('password2').value;
-		var gender = document.getElementById('gender').value;
-		
-		var email = document.getElementById('email').value;
-		var moblileno = document.getElementById('moblileno').value;
-		var address = document.getElementById('address').value;
-		var profession=document.getElementById('profession').value;
-		var Country=document.getElementById('Country').value;
-		
 	
-		
-	
-		// Store user data in localStorage
-		localStorage.setItem(username, JSON.stringify({
-		  username:username,
-		  password: password,
-		  password2:password2,
-		  gender: gender,
-		  profession:profession,
-		  email: email,
-		  patientID:patientID,
-		  moblileno:moblileno,
-		  address:address,
-		  Country:Country
-	
-		}));
-	
-	
-	  }
-	
-	</script> -->
-	<!-- <script type="module">
-	
-	
-		function loginBtn(){
-
-		
-		//----- Login code start    
-		document.getElementById("login").addEventListener("click", function() {
-			var email =  document.getElementById("login_email").value;
-			var password = document.getElementById("login_password").value;
-	
-			signInWithEmailAndPassword(auth, email, password)
-			.then((userCredential) => {
-			  // Signed in 
-			  const user = userCredential.user;
-			  console.log(user);
-			  alert(user.email+" Login successfully!!!");
-			  document.getElementById('logout').style.display = 'block';
-			  // ...
-			})
-			.catch((error) => {
-			  const errorCode = error.code;
-			  const errorMessage = error.message;
-			  console.log(errorMessage);
-			  alert(errorMessage);
-			});                 
-		});
-
-	}
-		//----- End
-	
-
-		function logout(){
-
-		
-		//----- Logout code start   
-		document.getElementById("logout").addEventListener("click", function() {
-			signOut(auth).then(() => {
-				// Sign-out successful.
-				console.log('Sign-out successful.');
-				alert('Sign-out successful.');
-				document.getElementById('logout').style.display = 'none';
-			  }).catch((error) => {
-				// An error happened.
-				console.log('An error happened.');
-			  });               
-		});
-		//----- End
-		}
-	  </script>
-	 -->
-
-
-
 
 
 
