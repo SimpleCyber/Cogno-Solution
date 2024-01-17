@@ -57,13 +57,13 @@ function loginUser() {
 		console.log("User is a doctor");
 		// Additional logic for a doctor
 		localStorage.setItem("userProfession", "doctor")
-		window.location = "/index.html";
+		window.location = "index.html";
 	  } else {
 		usersRef.child("patient/" + userId).once("value", (snapshot) => {
 		  if (snapshot.exists()) {
 			console.log("User is a patient");
 			localStorage.setItem("userProfession", "patient")
-			window.location = "/index.html"
+			window.location = "index.html"
 		  } else {
 			console.log("User type is unknown");
 			// Handle unknown user type
