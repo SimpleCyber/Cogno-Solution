@@ -112,7 +112,7 @@ function openDashBoard() {
   if (localStorage.getItem("userProfession") == "doctor") {
     window.location = "doctorDashBoard.html";
   } else if (localStorage.getItem("userProfession") == "patient") {
-    window.location = "patientDashBoard.html";
+    window.location = "./patientDashBoard.html";
   }
   else {
     alert("⚠️ User is Not Logged In")
@@ -285,7 +285,7 @@ function speak() {
 
     // Adjust pitch and rate (optional)
 
-    utterance.pitch = 1.5;
+    utterance.pitch = 0.75;
     utterance.rate = 0.8;
     // Speak the text
     synth.speak(utterance);
