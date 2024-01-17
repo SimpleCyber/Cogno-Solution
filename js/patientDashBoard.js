@@ -44,7 +44,7 @@ function logoutPatient(){
   .then(() => {
     // Sign-out successful
     
-    window.location = "./index.html"
+    window.location = "index.html"
     // You can redirect the user to another page or perform other actions after logout
     
   })
