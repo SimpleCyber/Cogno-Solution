@@ -25,29 +25,58 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet" />
-    <link rel="shortcut icon" href="/img/cognitive.png" type="image/x-icon">
 
-    <style>
-        #chatbotImg {
-            position: fixed;
-            z-index: 99999999999;
-            width: 9%;
-            left: 90%;
-            top: 75%;
-            cursor: pointer;
-            filter: drop-shadow(5px 5px 5px #222);
-        }
+     <style>
+            .webchatIframe {
+               position: relative ;
+             }
+       </style>
 
-        a {
-            cursor: pointer;
-        }
-    </style>
+   
 </head>
 
 <body >
 
 
-    <img onclick="openChatBot()" id="chatbotImg" src="img/chatbot.png" alt="">
+    
+<!-- start chtbot  -->
+
+
+<script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Chat with Cogno Assistant",
+          "botConversationDescription": "Helping hands towards cognitive",
+          "botId": "63e29069-5112-4709-a16c-9e860e273fab",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "63e29069-5112-4709-a16c-9e860e273fab",
+          "webhookId": "bd065ea5-bad0-4a09-9970-182e70da2367",
+          "lazySocket": true,
+          "themeName": "prism",
+          "botName": "Cogno Assistant",
+          "avatarUrl": "data:image/jpeg;base64,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",
+          "stylesheet": "https://webchat-styler-css.botpress.app/prod/da11141e-d012-400b-882a-a63e0e657836/v161/style.css",
+          "frontendVersion": "v1",
+          "showPoweredBy": true,
+          "theme": "prism",
+          "themeColor": "#2563eb"
+      });
+    </script>
+  <script>
+   
+  window.botpressWebChat.onEvent(function () { window.botpressWebChat.sendEvent({ type: 'show' }) }, ['LIFECYCLE.LOADED']);
+  </script>
+
+
+
+<!-- chatbot end  -->
+
+
 
 
     <script type="text/javascript"
