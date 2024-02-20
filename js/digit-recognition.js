@@ -190,7 +190,7 @@ async function loadModel() {
 	model = undefined;
 
 	// load the model using a HTTPS request (where you have stored your model files)
-	model = await tf.loadLayersModel("models/model.json");
+	model = await tf.loadLayersModel("./models/model.json");
 
 	console.log("model loaded..");
 }
