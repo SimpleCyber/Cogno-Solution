@@ -330,7 +330,7 @@ function firstG() {
 	}
 	else {
 		alert("Total Score : " + currScore + "/" + totalScore);
-		window.location = "index.html"
+		window.location = "./index.html"
 	}
 
 }
