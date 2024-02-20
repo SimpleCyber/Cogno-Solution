@@ -1,7 +1,7 @@
 //-------------------
 // GLOBAL variables
 //-------------------
-consol.log("hii satyam 🤔")
+console.log("hii satyam 🤔")
 let model;
 
 
