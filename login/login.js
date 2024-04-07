@@ -23,6 +23,7 @@ function loginUser() {
 		const user = userCredential.user;
 		console.log(user);
 		alert(user.email + " Login successfully!!!");
+		window.location = "../index.html"   //----------------------------> changed new line
   
 		// Now determine if the user is a doctor or a patient
 		checkUserType(user.uid);
@@ -57,13 +58,13 @@ function loginUser() {
 		console.log("User is a doctor");
 		// Additional logic for a doctor
 		localStorage.setItem("userProfession", "doctor")
-		window.location = "https://dearcoder03.github.io/cogno_solutions/index.html";
+		window.location = "../index.html";
 	  } else {
 		usersRef.child("patient/" + userId).once("value", (snapshot) => {
 		  if (snapshot.exists()) {
 			console.log("User is a patient");
 			localStorage.setItem("userProfession", "patient")
-			window.location = "https://dearcoder03.github.io/cogno_solutions/index.html"
+			window.location = "../index.html"
 		  } else {
 			console.log("User type is unknown");
 			// Handle unknown user type
@@ -94,4 +95,3 @@ function loginUser() {
 //             console.log("Error retrieving user data:", error);
 //         });
 // }
-
