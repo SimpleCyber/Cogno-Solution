@@ -61,7 +61,7 @@ Thank you for choosing Cogno Solutions!
 # Cogno Solution
 <div align="center">
     <img src= "Screenshots/WhatsApp Image 2024-06-30 at 08.44.55_1e00f02d.jpg" alt="Image 1" width="300" height="230"/>
-    <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.44.55_1e00f02d.jpg" alt="Image 2" width="300" height="230"/>
+    <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.48.10_d560a4ea.jpg" alt="Image 2" width="300" height="230"/>
     <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.48.11_ad42a059.jpg" alt="Image 3" width="300" height="230"/>
 </div>
 
