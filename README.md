@@ -60,13 +60,13 @@ Thank you for choosing Cogno Solutions!
 
 # Cogno Solution
 <div align="center">
-    <img src=  "Screenshots/WhatsApp Image 2024-06-30 at 08.44.55_1e00f02d.jpg" alt="Image 1" width="300" height="230"/>
-    <img src="Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.48.10_d560a4ea.jpeg" alt="Image 2" width="300" height="230"/>
-    <img src="Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.48.11_5c9e2fb4.jpeg" alt="Image 3" width="300" height="230"/>
+    <img src= "Screenshots/WhatsApp Image 2024-06-30 at 08.44.55_1e00f02d.jpg" alt="Image 1" width="300" height="230"/>
+    <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.44.55_1e00f02d.jpg" alt="Image 2" width="300" height="230"/>
+    <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.48.11_ad42a059.jpg" alt="Image 3" width="300" height="230"/>
 </div>
 
 <div align="center" style="margin-top: 20px;">
-    <img src="Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.48.11_ad42a059.jpeg" alt="Image 4" width="300" height="230"/>
-    <img src="Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.48.11_caae87e2.jpeg" alt="Image 5" width="300" height="230"/>
+    <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.48.11_5c9e2fb4.jpg" alt="Image 4" width="300" height="230"/>
+    <img src="Screenshots/WhatsApp Image 2024-06-30 at 08.48.11_caae87e2.jpg" alt="Image 5" width="300" height="230"/>
 </div>
 # My group :)
