@@ -60,7 +60,7 @@ Thank you for choosing Cogno Solutions!
 
 # Cogno Solution
 <div align="center">
-    <img src="./Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.44.55_1e00f02d.jpeg" alt="Image 1" width="300" height="200"/>
+    <img src="../Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.44.55_1e00f02d.jpeg" alt="Image 1" width="300" height="200"/>
     <img src="./Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.48.10_d560a4ea.jpeg" alt="Image 2" width="300" height="200"/>
     <img src="./Screenshots/WhatsApp%20Image%202024-06-30%20at%2008.48.11_5c9e2fb4.jpeg" alt="Image 3" width="300" height="200"/>
 </div>
