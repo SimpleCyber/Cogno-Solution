@@ -1,209 +1,280 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="description" content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support." />
-<meta name="keywords" content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation" />
-<meta name="robots" content="index, follow" />
-<meta property="og:title" content="Cogno Solutions - Cognitive Health Platform" />
-<meta property="og:description" content="Engaging games, tests, and AI support for cognitive development." />
-<meta property="og:image" content="https://cogno-solutions.vercel.app/" />
-<meta property="og:url" content="https://cogno-solutions.vercel.app/" />
+  <head>
+    <meta
+      name="description"
+      content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support."
+    />
+    <meta
+      name="keywords"
+      content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Cogno Solutions - Cognitive Health Platform"
+    />
+    <meta
+      property="og:description"
+      content="Engaging games, tests, and AI support for cognitive development."
+    />
+    <meta property="og:image" content="https://cogno-solutions.vercel.app/" />
+    <a href="./index.html" class="logo">Cogno Solution</a>
+    <meta property="og:url" content="https://cogno-solutions.vercel.app/" />
     <title>Cogno Solutions</title>
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px;
-            padding: 2rem;
-        }
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px;
+        padding: 2rem;
+      }
 
-        .container { padding: 20px; }
+      .container {
+        padding: 20px;
+      }
 
-        .form-step {
-            display: none;
-        }
+      .form-step {
+        display: none;
+      }
 
-        .form-step.active {
-            display: block;
-        }
+      .form-step.active {
+        display: block;
+      }
 
-        .progress-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            position: relative;
-        }
+      .progress-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+        position: relative;
+      }
 
-        .progress-step {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            position: relative;
-            z-index: 1;
-        }
+      .progress-step {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        position: relative;
+        z-index: 1;
+      }
 
-        .progress-step.active {
-            background: #3498db;
-        }
+      .progress-step.active {
+        background: #3498db;
+      }
 
-        .progress-line {
-            position: absolute;
-            top: 15px;
-            height: 2px;
-            background: #ddd;
-            width: 100%;
-            z-index: 0;
-        }
+      .progress-line {
+        position: absolute;
+        top: 15px;
+        height: 2px;
+        background: #ddd;
+        width: 100%;
+        z-index: 0;
+      }
 
-        .textbox {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
+      .textbox {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
 
-        .btn_signin, .btn_next, .btn_prev {
-            background: #3498db;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
-        }
+      .btn_signin,
+      .btn_next,
+      .btn_prev {
+        background: #3498db;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+      }
 
-        .btn_prev {
-            background: #95a5a6;
-        }
+      .btn_prev {
+        background: #95a5a6;
+      }
 
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
 
-        label {
-            display: block;
-            margin-top: 10px;
-            color: #34495e;
-            font-weight: 500;
-        }
+      label {
+        display: block;
+        margin-top: 10px;
+        color: #34495e;
+        font-weight: 500;
+      }
 
-        .file-upload {
-            margin: 10px 0;
-        }
+      .file-upload {
+        margin: 10px 0;
+      }
 
-        h2 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+      h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 20px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="card">
-        <div class="container">
-            <div class="progress-bar">
-                <div class="progress-line"></div>
-                <div class="progress-step active">1</div>
-                <div class="progress-step">2</div>
-                <div class="progress-step">3</div>
-            </div>
-
-            <!-- Step 1: Authentication -->
-            <div class="form-step active" id="step1">
-                <h2>Authentication</h2>
-                <form id="authForm">
-                    <label>Email ID</label>
-                    <input class="textbox" type="email" id="email" placeholder="Enter your email">
-                    
-                    <label>Password</label>
-                    <input class="textbox" type="password" id="password" placeholder="Create password">
-                    
-                    <label>Confirm Password</label>
-                    <input class="textbox" type="password" id="password2" placeholder="Confirm password">
-                    
-                    <div class="button-group">
-                        <div></div>
-                        <button type="button" class="btn_next" onclick="nextStep(1)">Next</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Step 2: Basic Details -->
-            <div class="form-step" id="step2">
-                <h2>Basic Details</h2>
-                <form id="basicDetailsForm">
-                    <label>Full Name</label>
-                    <input class="textbox" type="text" id="username" placeholder="Enter your full name">
-                    
-                    <label>Phone Number</label>
-                    <input class="textbox" type="tel" id="moblileno" placeholder="Enter mobile number">
-                    
-                    <label>Gender</label>
-                    <select class="textbox" id="gender">
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
-                    
-                    <label>Weight (kg)</label>
-                    <input class="textbox" type="number" id="weight" placeholder="Enter weight">
-                    
-                    <label>Age</label>
-                    <input class="textbox" type="number" id="age" placeholder="Enter age">
-                    
-                    <div class="button-group">
-                        <button type="button" class="btn_prev" onclick="prevStep(2)">Previous</button>
-                        <button type="button" class="btn_next" onclick="nextStep(2)">Next</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Step 3: Additional Details -->
-            <div class="form-step" id="step3">
-                <h2>Additional Details</h2>
-                <form id="additionalDetailsForm">
-                    <label>Profile Photo</label>
-                    <input class="textbox file-upload" type="file" id="photo" accept="image/*">
-                    
-                    <label>Address</label>
-                    <textarea class="textbox" id="address" placeholder="Enter your address"></textarea>
-                    
-                    <label>User Type</label>
-                    <select class="textbox" id="profession">
-                        <option value="user">User</option>
-                    </select>
-                    
-                    <div class="button-group">
-                        <button type="button" class="btn_prev" onclick="prevStep(3)">Previous</button>
-                        <button type="button" class="btn_signin" onclick="registerUser()">Register</button>
-                    </div>
-                </form>
-            </div>
+      <div class="container">
+        <div class="progress-bar">
+          <div class="progress-line"></div>
+          <div class="progress-step active">1</div>
+          <div class="progress-step">2</div>
+          <div class="progress-step">3</div>
         </div>
+
+        <!-- Step 1: Authentication -->
+        <div class="form-step active" id="step1">
+          <h2>Authentication</h2>
+          <form id="authForm">
+            <label>Email ID</label>
+            <input
+              class="textbox"
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+            />
+
+            <label>Password</label>
+            <input
+              class="textbox"
+              type="password"
+              id="password"
+              placeholder="Create password"
+            />
+
+            <label>Confirm Password</label>
+            <input
+              class="textbox"
+              type="password"
+              id="password2"
+              placeholder="Confirm password"
+            />
+
+            <div class="button-group">
+              <div></div>
+              <button type="button" class="btn_next" onclick="nextStep(1)">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 2: Basic Details -->
+        <div class="form-step" id="step2">
+          <h2>Basic Details</h2>
+          <form id="basicDetailsForm">
+            <label>Full Name</label>
+            <input
+              class="textbox"
+              type="text"
+              id="username"
+              placeholder="Enter your full name"
+            />
+
+            <label>Phone Number</label>
+            <input
+              class="textbox"
+              type="tel"
+              id="moblileno"
+              placeholder="Enter mobile number"
+            />
+
+            <label>Gender</label>
+            <select class="textbox" id="gender">
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+
+            <label>Weight (kg)</label>
+            <input
+              class="textbox"
+              type="number"
+              id="weight"
+              placeholder="Enter weight"
+            />
+
+            <label>Age</label>
+            <input
+              class="textbox"
+              type="number"
+              id="age"
+              placeholder="Enter age"
+            />
+
+            <div class="button-group">
+              <button type="button" class="btn_prev" onclick="prevStep(2)">
+                Previous
+              </button>
+              <button type="button" class="btn_next" onclick="nextStep(2)">
+                Next
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Step 3: Additional Details -->
+        <div class="form-step" id="step3">
+          <h2>Additional Details</h2>
+          <form id="additionalDetailsForm">
+            <label>Profile Photo</label>
+            <input
+              class="textbox file-upload"
+              type="file"
+              id="photo"
+              accept="image/*"
+            />
+
+            <label>Address</label>
+            <textarea
+              class="textbox"
+              id="address"
+              placeholder="Enter your address"
+            ></textarea>
+
+            <label>User Type</label>
+            <select class="textbox" id="profession">
+              <option value="user">User</option>
+            </select>
+
+            <div class="button-group">
+              <button type="button" class="btn_prev" onclick="prevStep(3)">
+                Previous
+              </button>
+              <button type="button" class="btn_signin" onclick="registerUser()">
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <!-- Firebase Scripts -->
@@ -213,22 +284,34 @@
     <script src="patient.js"></script>
 
     <script>
-        function nextStep(currentStep) {
-            // Add validation here before proceeding
-            document.getElementById('step' + currentStep).classList.remove('active');
-            document.getElementById('step' + (currentStep + 1)).classList.add('active');
-            
-            // Update progress bar
-            document.querySelectorAll('.progress-step')[currentStep].classList.add('active');
-        }
+      function nextStep(currentStep) {
+        // Add validation here before proceeding
+        document
+          .getElementById("step" + currentStep)
+          .classList.remove("active");
+        document
+          .getElementById("step" + (currentStep + 1))
+          .classList.add("active");
 
-        function prevStep(currentStep) {
-            document.getElementById('step' + currentStep).classList.remove('active');
-            document.getElementById('step' + (currentStep - 1)).classList.add('active');
-            
-            // Update progress bar
-            document.querySelectorAll('.progress-step')[currentStep - 1].classList.remove('active');
-        }
+        // Update progress bar
+        document
+          .querySelectorAll(".progress-step")
+          [currentStep].classList.add("active");
+      }
+
+      function prevStep(currentStep) {
+        document
+          .getElementById("step" + currentStep)
+          .classList.remove("active");
+        document
+          .getElementById("step" + (currentStep - 1))
+          .classList.add("active");
+
+        // Update progress bar
+        document
+          .querySelectorAll(".progress-step")
+          [currentStep - 1].classList.remove("active");
+      }
     </script>
-</body>
+  </body>
 </html>

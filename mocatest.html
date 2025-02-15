@@ -1,311 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="description" content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support." />
-<meta name="keywords" content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation" />
-<meta name="robots" content="index, follow" />
-<meta property="og:title" content="Cogno Solutions - Cognitive Health Platform" />
-<meta property="og:description" content="Engaging games, tests, and AI support for cognitive development." />
-<meta property="og:image" content="https://cogno-solutions.vercel.app/" />
-<meta property="og:url" content="https://cogno-solutions.vercel.app/" />
-    <meta charset="UTF-8">
+  <head>
+    <meta
+      name="description"
+      content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support."
+    />
+    <meta
+      name="keywords"
+      content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Cogno Solutions - Cognitive Health Platform"
+    />
+    <meta
+      property="og:description"
+      content="Engaging games, tests, and AI support for cognitive development."
+    />
+    <meta property="og:image" content="https://cogno-solutions.vercel.app/" />
+    <a href="./index.html" class="logo">Cogno Solution</a>
+    <meta property="og:url" content="https://cogno-solutions.vercel.app/" />
+    <meta charset="UTF-8" />
     <title>Fun Animal Picture Quiz! 🦁</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            --primary: #FF9F43;
-            --secondary: #6C5CE7;
-            --success: #00B894;
-            --background: #F8F9FE;
-        }
+      :root {
+        --primary: #ff9f43;
+        --secondary: #6c5ce7;
+        --success: #00b894;
+        --background: #f8f9fe;
+      }
 
-        body {
-            background: linear-gradient(135deg, #c2e59c, #64b3f4);
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      body {
+        background: linear-gradient(135deg, #c2e59c, #64b3f4);
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .quiz-container {
-            width: 90%;
-            max-width: 800px;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
-        }
+      .quiz-container {
+        width: 90%;
+        max-width: 800px;
+        background: white;
+        border-radius: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .quiz-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+      .quiz-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-        .quiz-title {
-            font-size: 2.5em;
-            color: var(--primary);
-            margin: 0;
-            padding: 15px;
-            border-radius: 20px;
-            background: #FFF5E6;
-            display: inline-block;
-            animation: bounce 2s infinite;
-        }
+      .quiz-title {
+        font-size: 2.5em;
+        color: var(--primary);
+        margin: 0;
+        padding: 15px;
+        border-radius: 20px;
+        background: #fff5e6;
+        display: inline-block;
+        animation: bounce 2s infinite;
+      }
 
-        .question {
-            font-size: 1.8em;
-            color: var(--secondary);
-            text-align: center;
-            margin: 20px 0;
-            animation: fadeIn 0.5s;
-        }
+      .question {
+        font-size: 1.8em;
+        color: var(--secondary);
+        text-align: center;
+        margin: 20px 0;
+        animation: fadeIn 0.5s;
+      }
 
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin: 30px 0;
-        }
+      .options-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin: 30px 0;
+      }
 
-        .option-button {
-            background: white;
-            border: 3px solid var(--primary);
-            border-radius: 20px;
-            padding: 10px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            overflow: hidden;
-            position: relative;
-        }
+      .option-button {
+        background: white;
+        border: 3px solid var(--primary);
+        border-radius: 20px;
+        padding: 10px;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+        position: relative;
+      }
 
-        .option-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 159, 67, 0.3);
-        }
+      .option-button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(255, 159, 67, 0.3);
+      }
 
-        .option-button img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 15px;
-        }
+      .option-button img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+      }
 
-        .progress-container {
-            margin-top: 20px;
-            text-align: center;
-        }
+      .progress-container {
+        margin-top: 20px;
+        text-align: center;
+      }
 
-        .progress-bar {
-            width: 100%;
-            height: 20px;
-            background: #f0f0f0;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px 0;
-        }
+      .progress-bar {
+        width: 100%;
+        height: 20px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 10px 0;
+      }
 
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(45deg, var(--primary), var(--success));
-            transition: width 0.5s ease;
-        }
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(45deg, var(--primary), var(--success));
+        transition: width 0.5s ease;
+      }
 
-        .progress-text {
-            font-size: 1.2em;
-            color: var(--secondary);
-        }
+      .progress-text {
+        font-size: 1.2em;
+        color: var(--secondary);
+      }
 
-        /* Result Screen Styles */
-        .result-container {
-            text-align: center;
-            animation: fadeIn 1s;
-        }
+      /* Result Screen Styles */
+      .result-container {
+        text-align: center;
+        animation: fadeIn 1s;
+      }
 
-        .result-title {
-            font-size: 2.5em;
-            color: var(--success);
-            margin-bottom: 20px;
-        }
+      .result-title {
+        font-size: 2.5em;
+        color: var(--success);
+        margin-bottom: 20px;
+      }
 
-        .score-display {
-            font-size: 3em;
-            color: var(--primary);
-            margin: 20px 0;
-        }
+      .score-display {
+        font-size: 3em;
+        color: var(--primary);
+        margin: 20px 0;
+      }
 
-        .feedback-message {
-            font-size: 1.5em;
-            color: var(--secondary);
-            margin: 20px 0;
-        }
+      .feedback-message {
+        font-size: 1.5em;
+        color: var(--secondary);
+        margin: 20px 0;
+      }
 
-        .restart-button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+      .restart-button {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
 
-        .restart-button:hover {
-            transform: scale(1.05);
-        }
+      .restart-button:hover {
+        transform: scale(1.05);
+      }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
         }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
+        to {
+          opacity: 1;
+        }
+      }
 
-        /* Confetti Animation for correct answers */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
-            opacity: 0;
-        }
+      /* Confetti Animation for correct answers */
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: var(--primary);
+        opacity: 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="quiz-container">
-        <div id="quiz">
-            <div class="quiz-header">
-                <h1 class="quiz-title">🦁 Animal Friends Quiz! 🐘</h1>
-            </div>
-            
-            <div id="question" class="question"></div>
-            
-            <div class="options-grid">
-                <button id="btn0" class="option-button">
-                    <span id="choice0"></span>
-                </button>
-                <button id="btn1" class="option-button">
-                    <span id="choice1"></span>
-                </button>
-                <button id="btn2" class="option-button">
-                    <span id="choice2"></span>
-                </button>
-                <button id="btn3" class="option-button">
-                    <span id="choice3"></span>
-                </button>
-            </div>
-
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div id="progressFill" class="progress-fill" style="width: 0%"></div>
-                </div>
-                <p id="progress" class="progress-text">Question 1 of 5</p>
-            </div>
+      <div id="quiz">
+        <div class="quiz-header">
+          <h1 class="quiz-title">🦁 Animal Friends Quiz! 🐘</h1>
         </div>
+
+        <div id="question" class="question"></div>
+
+        <div class="options-grid">
+          <button id="btn0" class="option-button">
+            <span id="choice0"></span>
+          </button>
+          <button id="btn1" class="option-button">
+            <span id="choice1"></span>
+          </button>
+          <button id="btn2" class="option-button">
+            <span id="choice2"></span>
+          </button>
+          <button id="btn3" class="option-button">
+            <span id="choice3"></span>
+          </button>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div
+              id="progressFill"
+              class="progress-fill"
+              style="width: 0%"
+            ></div>
+          </div>
+          <p id="progress" class="progress-text">Question 1 of 5</p>
+        </div>
+      </div>
     </div>
 
     <script>
-        const images = {
-            "dog": "./MocaTestImages/dog.jpg",
-            "cow": "./MocaTestImages/cow.jpg",
-            "cat": "./MocaTestImages/cat.jpg",
-            "goat": "./MocaTestImages/goat.jpg",
-            "deer": "./MocaTestImages/deer.jpg",
-            "hen": "./MocaTestImages/hen.jpg",
-            "lion": "./MocaTestImages/lion.jpg",
-            "parrot": "./MocaTestImages/parrot.jpg",
-            "tiger": "./MocaTestImages/tiger.jpg"
-        };
+      const images = {
+        dog: "./MocaTestImages/dog.jpg",
+        cow: "./MocaTestImages/cow.jpg",
+        cat: "./MocaTestImages/cat.jpg",
+        goat: "./MocaTestImages/goat.jpg",
+        deer: "./MocaTestImages/deer.jpg",
+        hen: "./MocaTestImages/hen.jpg",
+        lion: "./MocaTestImages/lion.jpg",
+        parrot: "./MocaTestImages/parrot.jpg",
+        tiger: "./MocaTestImages/tiger.jpg",
+      };
 
-        // Enhanced questions with emoji and friendly language
-        const questions = [
-            new Question("Can you find the friendly dog? 🐕", ["cow", "goat", "cat", "dog"], "dog"),
-            new Question("Where's our stripy friend the tiger? 🐯", ["parrot", "deer", "tiger", "lion"], "tiger"),
-            new Question("Spot the colorful parrot! 🦜", ["hen", "parrot", "goat", "dog"], "parrot"),
-            new Question("Find the purring kitty cat! 😺", ["parrot", "goat", "cat", "tiger"], "cat"),
-            new Question("Where's the king of the jungle? 🦁", ["lion", "goat", "tiger", "dog"], "lion")
-        ];
+      // Enhanced questions with emoji and friendly language
+      const questions = [
+        new Question(
+          "Can you find the friendly dog? 🐕",
+          ["cow", "goat", "cat", "dog"],
+          "dog"
+        ),
+        new Question(
+          "Where's our stripy friend the tiger? 🐯",
+          ["parrot", "deer", "tiger", "lion"],
+          "tiger"
+        ),
+        new Question(
+          "Spot the colorful parrot! 🦜",
+          ["hen", "parrot", "goat", "dog"],
+          "parrot"
+        ),
+        new Question(
+          "Find the purring kitty cat! 😺",
+          ["parrot", "goat", "cat", "tiger"],
+          "cat"
+        ),
+        new Question(
+          "Where's the king of the jungle? 🦁",
+          ["lion", "goat", "tiger", "dog"],
+          "lion"
+        ),
+      ];
 
-        function Question(text, choices, answer) {
-            this.text = text;
-            this.choices = choices;
-            this.answer = answer;
+      function Question(text, choices, answer) {
+        this.text = text;
+        this.choices = choices;
+        this.answer = answer;
+      }
+
+      Question.prototype.isCorrectAnswer = function (choice) {
+        return this.answer === choice;
+      };
+
+      function Quiz(questions) {
+        this.score = 0;
+        this.questions = questions;
+        this.questionIndex = 0;
+      }
+
+      Quiz.prototype.getQuestionIndex = function () {
+        return this.questions[this.questionIndex];
+      };
+
+      Quiz.prototype.guess = function (answer) {
+        const correct = this.getQuestionIndex().isCorrectAnswer(answer);
+
+        if (correct) {
+          this.score += 20;
+          createConfetti();
+          playCorrectSound();
         }
 
-        Question.prototype.isCorrectAnswer = function(choice) {
-            return this.answer === choice;
+        this.questionIndex++;
+        updateProgress();
+      };
+
+      Quiz.prototype.isEnded = function () {
+        return this.questionIndex === this.questions.length;
+      };
+
+      function createConfetti() {
+        for (let i = 0; i < 50; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+          confetti.style.opacity = "1";
+          document.querySelector(".quiz-container").appendChild(confetti);
+
+          setTimeout(() => confetti.remove(), 5000);
+        }
+      }
+
+      function updateProgress() {
+        const progress = (quiz.questionIndex / quiz.questions.length) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+      }
+
+      function showScores() {
+        const percentage = quiz.score;
+        let feedback = "";
+        let emoji = "";
+
+        if (percentage >= 80) {
+          feedback = "Amazing job! You're an animal expert! 🌟";
+          emoji = "🎉";
+        } else if (percentage >= 60) {
+          feedback = "Great work! Keep learning about animals! 🌟";
+          emoji = "⭐";
+        } else {
+          feedback = "Good try! Let's learn more about animals together! 💪";
+          emoji = "🌈";
         }
 
-        function Quiz(questions) {
-            this.score = 0;
-            this.questions = questions;
-            this.questionIndex = 0;
-        }
-
-        Quiz.prototype.getQuestionIndex = function() {
-            return this.questions[this.questionIndex];
-        }
-
-        Quiz.prototype.guess = function(answer) {
-            const correct = this.getQuestionIndex().isCorrectAnswer(answer);
-            
-            if (correct) {
-                this.score += 20;
-                createConfetti();
-                playCorrectSound();
-            }
-
-            this.questionIndex++;
-            updateProgress();
-        }
-
-        Quiz.prototype.isEnded = function() {
-            return this.questionIndex === this.questions.length;
-        }
-
-        function createConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                confetti.style.opacity = '1';
-                document.querySelector('.quiz-container').appendChild(confetti);
-                
-                setTimeout(() => confetti.remove(), 5000);
-            }
-        }
-
-        function updateProgress() {
-            const progress = (quiz.questionIndex / quiz.questions.length) * 100;
-            document.getElementById('progressFill').style.width = progress + '%';
-        }
-
-        function showScores() {
-            const percentage = quiz.score;
-            let feedback = '';
-            let emoji = '';
-
-            if (percentage >= 80) {
-                feedback = "Amazing job! You're an animal expert! 🌟";
-                emoji = "🎉";
-            } else if (percentage >= 60) {
-                feedback = "Great work! Keep learning about animals! 🌟";
-                emoji = "⭐";
-            } else {
-                feedback = "Good try! Let's learn more about animals together! 💪";
-                emoji = "🌈";
-            }
-
-            const gameOverHTML = `
+        const gameOverHTML = `
                 <div class="result-container">
                     <h1 class="result-title">Quiz Complete! ${emoji}</h1>
                     <div class="score-display">${quiz.score}%</div>
@@ -314,62 +363,69 @@
                 </div>
             `;
 
-            document.getElementById("quiz").innerHTML = gameOverHTML;
+        document.getElementById("quiz").innerHTML = gameOverHTML;
 
-            // Store and process results as in your original code
-            let mocaTestNo = Number(localStorage.getItem("mocaTestCount")) + 1;
-            localStorage.setItem("mocaTestCount", mocaTestNo);
+        // Store and process results as in your original code
+        let mocaTestNo = Number(localStorage.getItem("mocaTestCount")) + 1;
+        localStorage.setItem("mocaTestCount", mocaTestNo);
 
-            let mocaTestScores = JSON.parse(localStorage.getItem("mocaTestScores")) || [];
-            mocaTestScores.unshift({ mocaTestNo: mocaTestNo, score: quiz.score });
-            localStorage.setItem("mocaTestScores", JSON.stringify(mocaTestScores));
+        let mocaTestScores =
+          JSON.parse(localStorage.getItem("mocaTestScores")) || [];
+        mocaTestScores.unshift({ mocaTestNo: mocaTestNo, score: quiz.score });
+        localStorage.setItem("mocaTestScores", JSON.stringify(mocaTestScores));
 
-            const averageScore = mocaTestScores.reduce((sum, test) => sum + test.score, 0) / mocaTestScores.length;
-            const likelihood = averageScore >= 70 ? 'Great progress!' : 
-                             averageScore >= 30 ? 'Keep practicing!' : 'Let\'s try again!';
+        const averageScore =
+          mocaTestScores.reduce((sum, test) => sum + test.score, 0) /
+          mocaTestScores.length;
+        const likelihood =
+          averageScore >= 70
+            ? "Great progress!"
+            : averageScore >= 30
+            ? "Keep practicing!"
+            : "Let's try again!";
 
-            setTimeout(() => {
-                alert(`Overall Score: ${averageScore.toFixed(2)}\n${likelihood}`);
-                window.location.href = "./index.html";
-            }, 3000);
+        setTimeout(() => {
+          alert(`Overall Score: ${averageScore.toFixed(2)}\n${likelihood}`);
+          window.location.href = "./index.html";
+        }, 3000);
+      }
+
+      function populate() {
+        if (quiz.isEnded()) {
+          showScores();
+        } else {
+          const element = document.getElementById("question");
+          element.innerHTML = quiz.getQuestionIndex().text;
+
+          const choices = quiz.getQuestionIndex().choices;
+          for (let i = 0; i < choices.length; i++) {
+            const element = document.getElementById("choice" + i);
+            element.innerHTML = images[choices[i]]
+              ? `<img src="${images[choices[i]]}" alt="${choices[i]}">`
+              : choices[i];
+            guess("btn" + i, choices[i]);
+          }
+
+          showProgress();
         }
+      }
 
-        function populate() {
-            if (quiz.isEnded()) {
-                showScores();
-            } else {
-                const element = document.getElementById("question");
-                element.innerHTML = quiz.getQuestionIndex().text;
+      function guess(id, guess) {
+        const button = document.getElementById(id);
+        button.onclick = function () {
+          quiz.guess(guess);
+          populate();
+        };
+      }
 
-                const choices = quiz.getQuestionIndex().choices;
-                for (let i = 0; i < choices.length; i++) {
-                    const element = document.getElementById("choice" + i);
-                    element.innerHTML = images[choices[i]] ? 
-                        `<img src="${images[choices[i]]}" alt="${choices[i]}">` : 
-                        choices[i];
-                    guess("btn" + i, choices[i]);
-                }
+      function showProgress() {
+        const currentQuestionNumber = quiz.questionIndex + 1;
+        const element = document.getElementById("progress");
+        element.innerHTML = `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
+      }
 
-                showProgress();
-            }
-        }
-
-        function guess(id, guess) {
-            const button = document.getElementById(id);
-            button.onclick = function() {
-                quiz.guess(guess);
-                populate();
-            }
-        }
-
-        function showProgress() {
-            const currentQuestionNumber = quiz.questionIndex + 1;
-            const element = document.getElementById("progress");
-            element.innerHTML = `Question ${currentQuestionNumber} of ${quiz.questions.length}`;
-        }
-
-        const quiz = new Quiz(questions);
-        populate();
+      const quiz = new Quiz(questions);
+      populate();
     </script>
-</body>
+  </body>
 </html>

@@ -1,62 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta name="description" content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support." />
-<meta name="keywords" content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation" />
-<meta name="robots" content="index, follow" />
-<meta property="og:title" content="Cogno Solutions - Cognitive Health Platform" />
-<meta property="og:description" content="Engaging games, tests, and AI support for cognitive development." />
-<meta property="og:image" content="https://cogno-solutions.vercel.app/" />
-<meta property="og:url" content="https://cogno-solutions.vercel.app/" />
-    <meta charset="utf-8">
+  <head>
+    <meta
+      name="description"
+      content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support."
+    />
+    <meta
+      name="keywords"
+      content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Cogno Solutions - Cognitive Health Platform"
+    />
+    <meta
+      property="og:description"
+      content="Engaging games, tests, and AI support for cognitive development."
+    />
+    <meta property="og:image" content="https://cogno-solutions.vercel.app/" />
+    <a href="./index.html" class="logo">Cogno Solution</a>
+    <meta property="og:url" content="https://cogno-solutions.vercel.app/" />
+    <meta charset="utf-8" />
     <title>Matching Game</title>
-    <meta name="description" content="">
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
-    <link rel="stylesheet" href="css/app.css">
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet prefetch"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet prefetch"
+      href="https://fonts.googleapis.com/css?family=Coda"
+    />
+    <link rel="stylesheet" href="css/app.css" />
 
-    <link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
-</head>
-<body>
-
+    <link
+      rel="stylesheet prefetch"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
+    />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Matching Game</h1>
-        </header>
+      <header>
+        <h1>Matching Game</h1>
+      </header>
 
-        <section class="score-panel">
-        	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-        	</ul>
-
-        	<span class="moves">3</span> Moves
-
-            <div class="timerCase">
-                <i class="fa fa-hourglass"></i> <span class="timer"></span>
-            </div>
-
-            <div class="restart">
-        		<i class="fa fa-repeat"></i>
-        	</div>
-        </section>
-
-        <ul class="deck">
+      <section class="score-panel">
+        <ul class="stars">
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
+          <li><i class="fa fa-star"></i></li>
         </ul>
+
+        <span class="moves">3</span> Moves
+
+        <div class="timerCase">
+          <i class="fa fa-hourglass"></i> <span class="timer"></span>
+        </div>
+
+        <div class="restart">
+          <i class="fa fa-repeat"></i>
+        </div>
+      </section>
+
+      <ul class="deck"></ul>
     </div>
 
     <div class="modal">
-        <div class="modal-content">
-            <span class="close-button">×</span>
-            <h3>Congratulations, you won!</h3>
-            <p>You finished in <span id = 'winTime'></span></p>
-            <p>with <span id = 'winStars'></span> stars rating</p>
-            <button class = "btn" id = "replay">Play Again</button>
-        </div>
+      <div class="modal-content">
+        <span class="close-button">×</span>
+        <h3>Congratulations, you won!</h3>
+        <p>You finished in <span id="winTime"></span></p>
+        <p>with <span id="winStars"></span> stars rating</p>
+        <button class="btn" id="replay">Play Again</button>
+      </div>
     </div>
 
     <script src="js/app.js"></script>
-</body>
+  </body>
 </html>

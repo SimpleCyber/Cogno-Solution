@@ -1,16 +1,32 @@
 <html>
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1 viewport-fit=cover, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="description" content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support." />
-<meta name="keywords" content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation" />
-<meta name="robots" content="index, follow" />
-<meta property="og:title" content="Cogno Solutions - Cognitive Health Platform" />
-<meta property="og:description" content="Engaging games, tests, and AI support for cognitive development." />
-<meta property="og:image" content="https://cogno-solutions.vercel.app/" />
-<meta property="og:url" content="https://cogno-solutions.vercel.app/" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1 viewport-fit=cover, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support."
+    />
+    <meta
+      name="keywords"
+      content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Cogno Solutions - Cognitive Health Platform"
+    />
+    <meta
+      property="og:description"
+      content="Engaging games, tests, and AI support for cognitive development."
+    />
+    <meta property="og:image" content="https://cogno-solutions.vercel.app/" />
+    <a href="./index.html" class="logo">Cogno Solution</a>
+    <meta property="og:url" content="https://cogno-solutions.vercel.app/" />
 
-  <link rel="shortcut icon" href="/img/cognitive.png" type="image/x-icon">
-  <style>
+    <link rel="shortcut icon" href="/img/cognitive.png" type="image/x-icon" />
+    <style>
       body {
         background-color: white;
         margin: 0 auto;
@@ -36,35 +52,39 @@
     <title>Chatbot</title>
   </head>
   <body>
-
-  <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-<script>
-  window.botpressWebChat.init({
-      "composerPlaceholder": "Chat With Cogno-Assistant",
-      "botConversationDescription": "MAKE YOUR DOUBTS CLEAR WITH COGNO ASSISTANT",
-      "botId": "63e29069-5112-4709-a16c-9e860e273fab",
-      "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
-      "messagingUrl": "https://messaging.botpress.cloud",
-      "clientId": "63e29069-5112-4709-a16c-9e860e273fab",
-      "webhookId": "bd065ea5-bad0-4a09-9970-182e70da2367",
-      "lazySocket": true,
-      "themeName": "prism",
-      "frontendVersion": "v1",
-      "showPoweredBy": true,
-      "theme": "prism",
-      "themeColor": "#2563eb",
-      "hideWidget": true,
-      "disableAnimations": true,
-      "closeOnEscape": false,
-      "showConversationsButton": false,
-      "enableTranscriptDownload": false,
-      "className": "webchatIframe",
-      "containerWidth": "100%25",
-      "layoutWidth": "100%25",
-      "showCloseButton": false
-  });
-window.botpressWebChat.onEvent(function () { window.botpressWebChat.sendEvent({ type: 'show' }) }, ['LIFECYCLE.LOADED']);
-</script>
-
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script>
+      window.botpressWebChat.init({
+        composerPlaceholder: "Chat With Cogno-Assistant",
+        botConversationDescription:
+          "MAKE YOUR DOUBTS CLEAR WITH COGNO ASSISTANT",
+        botId: "63e29069-5112-4709-a16c-9e860e273fab",
+        hostUrl: "https://cdn.botpress.cloud/webchat/v1",
+        messagingUrl: "https://messaging.botpress.cloud",
+        clientId: "63e29069-5112-4709-a16c-9e860e273fab",
+        webhookId: "bd065ea5-bad0-4a09-9970-182e70da2367",
+        lazySocket: true,
+        themeName: "prism",
+        frontendVersion: "v1",
+        showPoweredBy: true,
+        theme: "prism",
+        themeColor: "#2563eb",
+        hideWidget: true,
+        disableAnimations: true,
+        closeOnEscape: false,
+        showConversationsButton: false,
+        enableTranscriptDownload: false,
+        className: "webchatIframe",
+        containerWidth: "100%25",
+        layoutWidth: "100%25",
+        showCloseButton: false,
+      });
+      window.botpressWebChat.onEvent(
+        function () {
+          window.botpressWebChat.sendEvent({ type: "show" });
+        },
+        ["LIFECYCLE.LOADED"]
+      );
+    </script>
   </body>
 </html>

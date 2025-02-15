@@ -1,254 +1,292 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="description" content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support." />
-<meta name="keywords" content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation" />
-<meta name="robots" content="index, follow" />
-<meta property="og:title" content="Cogno Solutions - Cognitive Health Platform" />
-<meta property="og:description" content="Engaging games, tests, and AI support for cognitive development." />
-<meta property="og:image" content="https://cogno-solutions.vercel.app/" />
-<meta property="og:url" content="https://cogno-solutions.vercel.app/" />
+  <head>
+    <meta
+      name="description"
+      content="Cogno Solutions helps individuals with cognitive disabilities through games, tests, and AI-driven support."
+    />
+    <meta
+      name="keywords"
+      content="cognitive health, mind games, aptitude test, AI health assistant, video calling, doctor consultation"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Cogno Solutions - Cognitive Health Platform"
+    />
+    <meta
+      property="og:description"
+      content="Engaging games, tests, and AI support for cognitive development."
+    />
+    <meta property="og:image" content="https://cogno-solutions.vercel.app/" />
+    <a href="./index.html" class="logo">Cogno Solution</a>
+    <meta property="og:url" content="https://cogno-solutions.vercel.app/" />
     <title>Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
+      .card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        padding: 40px;
+      }
+
+      h2 {
+        color: #2c3e50;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #34495e;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .textbox {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      .textbox:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+        outline: none;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .btn_signin,
+      .btn_clear {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn_signin {
+        background: #3498db;
+        color: white;
+      }
+
+      .btn_clear {
+        background: #f1f2f6;
+        color: #2c3e50;
+      }
+
+      .btn_signin:hover {
+        background: #2980b9;
+      }
+
+      .btn_clear:hover {
+        background: #dcdde1;
+      }
+
+      .signup-link {
+        text-align: center;
+        margin-top: 25px;
+      }
+
+      a {
+        color: #3498db;
+        text-decoration: none;
+        font-size: 15px;
+        transition: color 0.3s;
+      }
+
+      a:hover {
+        color: #2980b9;
+      }
+
+      p {
+        color: #666;
+        font-size: 14px;
+        margin: 15px 0;
+        text-align: center;
+      }
+
+      /* Desktop Styles */
+      @media (min-width: 1024px) {
         .card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: all 0.3s ease;
+          width: 450px;
         }
 
         .container {
-            padding: 40px;
-        }
-
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 28px;
-            font-weight: 600;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #34495e;
-            font-size: 16px;
-            font-weight: 500;
+          padding: 50px;
         }
 
         .textbox {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
+          padding: 15px 20px;
         }
 
-        .textbox:focus {
-            border-color: #3498db;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
-            outline: none;
+        .btn_signin,
+        .btn_clear {
+          padding: 15px 30px;
+        }
+      }
+
+      /* Tablet Styles */
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .card {
+          width: 400px;
+        }
+
+        .container {
+          padding: 40px;
+        }
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 767px) {
+        .card {
+          width: 90%;
+          margin: 20px;
+        }
+
+        .container {
+          padding: 30px;
+        }
+
+        h2 {
+          font-size: 24px;
+          margin-bottom: 25px;
         }
 
         .button-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
+          flex-direction: column;
+          gap: 10px;
         }
 
-        .btn_signin, .btn_clear {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn_signin {
-            background: #3498db;
-            color: white;
-        }
-
+        .btn_signin,
         .btn_clear {
-            background: #f1f2f6;
-            color: #2c3e50;
+          width: 100%;
+          padding: 12px;
+        }
+      }
+
+      /* Small Mobile Styles */
+      @media (max-width: 320px) {
+        .container {
+          padding: 20px;
         }
 
-        .btn_signin:hover {
-            background: #2980b9;
+        h2 {
+          font-size: 22px;
         }
 
-        .btn_clear:hover {
-            background: #dcdde1;
+        .textbox {
+          padding: 12px;
         }
+      }
 
-        .signup-link {
-            text-align: center;
-            margin-top: 25px;
-        }
+      /* Error States */
+      .error-message {
+        color: #e74c3c;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none;
+      }
 
-        a {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #2980b9;
-        }
-
-        p {
-            color: #666;
-            font-size: 14px;
-            margin: 15px 0;
-            text-align: center;
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 1024px) {
-            .card {
-                width: 450px;
-            }
-
-            .container {
-                padding: 50px;
-            }
-
-            .textbox {
-                padding: 15px 20px;
-            }
-
-            .btn_signin, .btn_clear {
-                padding: 15px 30px;
-            }
-        }
-
-        /* Tablet Styles */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .card {
-                width: 400px;
-            }
-
-            .container {
-                padding: 40px;
-            }
-        }
-
-        /* Mobile Styles */
-        @media (max-width: 767px) {
-            .card {
-                width: 90%;
-                margin: 20px;
-            }
-
-            .container {
-                padding: 30px;
-            }
-
-            h2 {
-                font-size: 24px;
-                margin-bottom: 25px;
-            }
-
-            .button-group {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .btn_signin, .btn_clear {
-                width: 100%;
-                padding: 12px;
-            }
-        }
-
-        /* Small Mobile Styles */
-        @media (max-width: 320px) {
-            .container {
-                padding: 20px;
-            }
-
-            h2 {
-                font-size: 22px;
-            }
-
-            .textbox {
-                padding: 12px;
-            }
-        }
-
-        /* Error States */
-        .error-message {
-            color: #e74c3c;
-            font-size: 14px;
-            margin-top: 5px;
-            display: none;
-        }
-
-        .textbox.error {
-            border-color: #e74c3c;
-        }
+      .textbox.error {
+        border-color: #e74c3c;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <form id="loginForm">
-        <div class="card">
-            <div class="container">
-                <h2>Sign In</h2>
-                
-                <div class="form-group">
-                    <label for="loginEmail">Username</label>
-                    <input class="textbox" id="loginEmail" type="text" name="username" 
-                           placeholder="Enter your username" required>
-                    <div class="error-message" id="email-error">Please enter a valid username</div>
-                </div>
+      <div class="card">
+        <div class="container">
+          <h2>Sign In</h2>
 
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input class="textbox" id="loginPassword" type="password" name="password" 
-                           placeholder="Enter your password" required>
-                    <div class="error-message" id="password-error">Please enter your password</div>
-                </div>
-
-                <p>Please enter your login credentials</p>
-
-                <div class="button-group">
-                    <input class="btn_signin" type="button" onclick="loginUser()" name="signin" value="Login">
-                    <input class="btn_clear" type="reset" name="clear" value="Clear">
-                </div>
-
-                <div class="signup-link">
-                    <a href="trail.html">New user? Sign up here</a>
-                </div>
+          <div class="form-group">
+            <label for="loginEmail">Username</label>
+            <input
+              class="textbox"
+              id="loginEmail"
+              type="text"
+              name="username"
+              placeholder="Enter your username"
+              required
+            />
+            <div class="error-message" id="email-error">
+              Please enter a valid username
             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input
+              class="textbox"
+              id="loginPassword"
+              type="password"
+              name="password"
+              placeholder="Enter your password"
+              required
+            />
+            <div class="error-message" id="password-error">
+              Please enter your password
+            </div>
+          </div>
+
+          <p>Please enter your login credentials</p>
+
+          <div class="button-group">
+            <input
+              class="btn_signin"
+              type="button"
+              onclick="loginUser()"
+              name="signin"
+              value="Login"
+            />
+            <input class="btn_clear" type="reset" name="clear" value="Clear" />
+          </div>
+
+          <div class="signup-link">
+            <a href="trail.html">New user? Sign up here</a>
+          </div>
         </div>
+      </div>
     </form>
 
     <!-- Firebase Scripts -->
@@ -256,5 +294,5 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
     <script src="login.js"></script>
-</body>
+  </body>
 </html>
