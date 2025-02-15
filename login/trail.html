@@ -1,22 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Cogno Solutions</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cogno Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .selection-button {
+            transition: all 0.3s ease;
+        }
+        .selection-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body>
-<center>
-	<form>
-		<div class="card">
-		  <img class="User_img" src="images/User.png" alt="User">
-          <img class="User_img" src="images/User.png" alt="User">
-          <br>
-        
-            <a href="doctor.html"><button class="btn btn-primary" type="button" style="color: black;">Doctor</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-           <a href="patient.html"> <button class="btn btn-primary" type="button">Patient</button></a>
-          </div>
-        
-	</form>
-</center>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome to Cogno Solutions</h1>
+                <p class="text-gray-600">Please select your role to continue</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <!-- Doctor Card -->
+                <div class="card bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="mb-4">
+                        <img src="./images/User.png" alt="Doctor Icon" class="mx-auto rounded-full bg-blue-50 p-2">
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Doctor Portal</h2>
+                    <p class="text-gray-600 mb-6">Access your medical dashboard and patient records</p>
+                    <a href="doctor.html">
+                        <button class="selection-button bg-blue-600 text-white px-8 py-3 rounded-lg font-medium w-full">
+                            Login as Doctor
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Patient Card -->
+                <div class="card bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="mb-4">
+                        <img src="./images/User.png" alt="Patient Icon" class="mx-auto rounded-full bg-green-50 p-2">
+                    </div>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4">Patient Portal</h2>
+                    <p class="text-gray-600 mb-6">View your medical history and appointments</p>
+                    <a href="patient.html">
+                        <button class="selection-button bg-green-600 text-white px-8 py-3 rounded-lg font-medium w-full">
+                            Login as Patient
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-8 text-gray-600">
+            <p>© 2025 Cogno Solutions. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add button click animation
+        document.querySelectorAll('.selection-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 100);
+            });
+        });
+    </script>
 </body>
 </html>

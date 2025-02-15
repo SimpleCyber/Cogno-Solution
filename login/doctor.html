@@ -1,208 +1,227 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>WEB Form</title>
-	<link rel="stylesheet" href="style.css">
+    <title>Cogno Solutions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 2rem;
+        }
+
+        .container { padding: 20px; }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-step.active {
+            background: #3498db;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 15px;
+            height: 2px;
+            background: #ddd;
+            width: 100%;
+            z-index: 0;
+        }
+
+        .textbox {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .btn_signin, .btn_next, .btn_prev {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .btn_prev {
+            background: #95a5a6;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        .file-upload {
+            margin: 10px 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="card">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-line"></div>
+                <div class="progress-step active">1</div>
+                <div class="progress-step">2</div>
+                <div class="progress-step">3</div>
+            </div>
 
+            <!-- Step 1: Authentication -->
+            <div class="form-step active" id="step1">
+                <h2>Authentication</h2>
+                <form id="authForm">
+                    <label>Email ID</label>
+                    <input class="textbox" type="email" id="email" placeholder="Enter your email">
+                    
+                    <label>Password</label>
+                    <input class="textbox" type="password" id="password" placeholder="Create password">
+                    
+                    <label>Confirm Password</label>
+                    <input class="textbox" type="password" id="password2" placeholder="Confirm password">
+                    
+                    <div class="button-group">
+                        <div></div>
+                        <button type="button" class="btn_next" onclick="nextStep(1)">Next</button>
+                    </div>
+                </form>
+            </div>
 
-	<form id="registrationForm"></form>
+            <!-- Step 2: Basic Details -->
+            <div class="form-step" id="step2">
+                <h2>Basic Details</h2>
+                <form id="basicDetailsForm">
+                    <label>Full Name</label>
+                    <input class="textbox" type="text" id="username" placeholder="Enter your full name">
+                    
+                    <label>Phone Number</label>
+                    <input class="textbox" type="tel" id="moblileno" placeholder="Enter mobile number">
+                    
+                    <label>Gender</label>
+                    <select class="textbox" id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    
+                    <label>Weight (kg)</label>
+                    <input class="textbox" type="number" id="weight" placeholder="Enter weight">
+                    
+                    <label>Age</label>
+                    <input class="textbox" type="number" id="age" placeholder="Enter age">
+                    
+                    <div class="button-group">
+                        <button type="button" class="btn_prev" onclick="prevStep(2)">Previous</button>
+                        <button type="button" class="btn_next" onclick="nextStep(2)">Next</button>
+                    </div>
+                </form>
+            </div>
 
-	<form>
-		<div class="card">
-			<div class="container">
-				<h2 align="center"><b><u>Enter Doctor Details</u></b></h2>
+            <!-- Step 3: Additional Details -->
+            <div class="form-step" id="step3">
+                <h2>Additional Details</h2>
+                <form id="additionalDetailsForm">
+                    <label>Profile Photo</label>
+                    <input class="textbox file-upload" type="file" id="photo" accept="image/*">
+                    
+                    <label>Address</label>
+                    <textarea class="textbox" id="address" placeholder="Enter your address"></textarea>
+                    
+                    <label>User Type</label>
+                    <select class="textbox" id="profession">
+                        <option value="user">User</option>
+                    </select>
+                    
+                    <div class="button-group">
+                        <button type="button" class="btn_prev" onclick="prevStep(3)">Previous</button>
+                        <button type="button" class="btn_signin" onclick="registerUser()">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="patient.js"></script>
 
+    <script>
+        function nextStep(currentStep) {
+            // Add validation here before proceeding
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + (currentStep + 1)).classList.add('active');
+            
+            // Update progress bar
+            document.querySelectorAll('.progress-step')[currentStep].classList.add('active');
+        }
 
-				Username :<br>
-				<input class="textbox" type="text" id="username" name="name" placeholder="Enter Your Full Name"
-					size="35">
-				<br>
-
-				<br>
-				<select name="gender" id="gender">
-					<option value="Male">Select Gender</option>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
-				</select>
-				<br>
-
-
-
-
-				<br>
-				Address :
-				<input class="textbox" id="address" placeholder="Enter Your Address" name="address"
-					style="width: 313px;"></textarea>
-				<br>
-
-				<br>
-				<label for="pwd">Confirm password:</label>
-				<input type="password" id="password2" name="pwd" required>
-				<br>
-				<br>
-
-
-
-				<select class="textbox" id="Country" name="sel_Country" style="width: 322px">
-					<option value="Defult">Select Your Country</option>
-					<option value="Sri Lanka">Sri Lanka</option>
-					<option value="India">India</option>
-					<option value="Japan">Japan</option>
-					<option value="China">China</option>
-					<option value="US">US</option>
-					<option value="Koria">Koria</option>
-					<option value="Moldives">Moldives</option>
-					<option value="UK">UK</option>
-					<option value="Nepal">Nepal</option>
-					<option value="Mexico">Mexico</option>
-				</select>
-				<br>
-
-
-				<br>
-
-				<select class="textbox" id="profession" name="Qualifications" style="width: 322px">
-					<option value="Defult">Qualifications</option>
-
-					<option value="councelar">councelar</option>
-					<option value="physcatrist">physcatrist</option>
-					<option value="therapist">therapist</option>
-
-				</select>
-				<br>
-
-
-
-				Email ID :<br>
-				<input class="textbox" placeholder="Enter Your Email" id="email" style="width: 313px;">
-				<br>
-
-				<br>
-				<label for="pwd">Create password:</label>
-				<input type="password" id="password" name="pwd" required>
-				<br>
-				Mobile No:<br>
-				<input class="textbox" id="moblileno" type="text" name="moblieno" placeholder="Enter Your Mobile No"
-					size="35">
-				<br>
-
-				<button type="button" onclick="registerUser()">Register</button>
-
-
-
-			</div>
-		</div>
-	</form>
-
-
-	</form>
-
-	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-
-	<script src="/SIH COGNO/login/doctor.js"></script>
-	<script>
-	function registerUser() {
-		var patientID = document.getElementById('drID').value;
-		var username = document.getElementById('username').value;
-		var password = document.getElementById('password').value;
-		var password2 = document.getElementById('password2').value;
-		var gender = document.getElementById('gender').value;
-		
-		var email = document.getElementById('email').value;
-		var moblileno = document.getElementById('moblileno').value;
-		var address = document.getElementById('address').value;
-		var profession=document.getElementById('profession').value;
-		var Country=document.getElementById('Country').value;
-		
-	
-		
-	
-		// Store user data in localStorage
-		localStorage.setItem(username, JSON.stringify({
-		  username:username,
-		  password: password,
-		  password2:password2,
-		  gender: gender,
-		  profession:profession,
-		  email: email,
-		  patientID:patientID,
-		  moblileno:moblileno,
-		  address:address,
-		  Country:Country
-	
-		}));
-	
-	
-	  }
-	
-	</script> 
-	<!-- <script type="module">
-	
-	
-		function loginBtn(){
-
-		
-		//----- Login code start    
-		document.getElementById("login").addEventListener("click", function() {
-			var email =  document.getElementById("login_email").value;
-			var password = document.getElementById("login_password").value;
-	
-			signInWithEmailAndPassword(auth, email, password)
-			.then((userCredential) => {
-			  // Signed in 
-			  const user = userCredential.user;
-			  console.log(user);
-			  alert(user.email+" Login successfully!!!");
-			  document.getElementById('logout').style.display = 'block';
-			  // ...
-			})
-			.catch((error) => {
-			  const errorCode = error.code;
-			  const errorMessage = error.message;
-			  console.log(errorMessage);
-			  alert(errorMessage);
-			});                 
-		});
-
-	}
-		//----- End
-	
-
-		function logout(){
-
-		
-		//----- Logout code start   
-		document.getElementById("logout").addEventListener("click", function() {
-			signOut(auth).then(() => {
-				// Sign-out successful.
-				console.log('Sign-out successful.');
-				alert('Sign-out successful.');
-				document.getElementById('logout').style.display = 'none';
-			  }).catch((error) => {
-				// An error happened.
-				console.log('An error happened.');
-			  });               
-		});
-		//----- End
-		}
-	  </script>
-	
-
-
-
-
-
-
-
-
+        function prevStep(currentStep) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + (currentStep - 1)).classList.add('active');
+            
+            // Update progress bar
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.remove('active');
+        }
+    </script>
 </body>
-
 </html>

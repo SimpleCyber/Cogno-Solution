@@ -1,88 +1,331 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cogno Solutions</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
+    <title>Kids Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: #f0f9ff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50"><circle cx="50" cy="50" r="5" fill="%23FFD700" opacity="0.5"/></svg>') repeat;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 500px;
+            padding: 1.5rem;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            border: 5px solid #4a90e2;
+        }
+
+        .container { 
+            padding: 10px; 
+        }
+
+        .form-step {
+            display: none;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 40px;
+            position: relative;
+        }
+
+        .progress-step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f1f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            position: relative;
+            z-index: 1;
+            border: 3px solid #ddd;
+            transition: all 0.3s;
+        }
+
+        .progress-step.active {
+            background: #FFD700;
+            border-color: #FFA500;
+            transform: scale(1.1);
+        }
+
+        .progress-step::after {
+            content: '🌟';
+            position: absolute;
+            top: -20px;
+            font-size: 20px;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .progress-step.active::after {
+            opacity: 1;
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 20px;
+            height: 4px;
+            background: #ddd;
+            width: 100%;
+            z-index: 0;
+        }
+
+        .textbox {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 20px;
+            border: 2px solid #4a90e2;
+            border-radius: 15px;
+            font-size: 16px;
+            background: #fff;
+            transition: all 0.3s;
+        }
+
+        .textbox:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            outline: none;
+        }
+
+        .btn_signin, .btn_next, .btn_prev {
+            background: #4a90e2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+            font-family: 'Comic Sans MS', cursive;
+            transition: transform 0.2s;
+        }
+
+        .btn_next::after {
+            content: ' 👉';
+        }
+
+        .btn_prev::before {
+            content: '👈 ';
+        }
+
+        .btn_signin::after {
+            content: ' 🎉';
+        }
+
+        .btn_signin:hover, .btn_next:hover, .btn_prev:hover {
+            transform: scale(1.05);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #333;
+            font-size: 18px;
+        }
+
+        label::after {
+            content: ' 😊';
+        }
+
+        h2 {
+            color: #4a90e2;
+            text-align: center;
+            margin: 15px 0;
+            font-size: 24px;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 95%;
+                padding: 1rem;
+            }
+
+            .progress-bar {
+                margin: 10px 20px;
+            }
+
+            .progress-step {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn_signin, .btn_next, .btn_prev {
+                width: 100%;
+            }
+        }
+
+        .mascot {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        select.textbox {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234a90e2"><path d="M7 10l5 5 5-5z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+    </style>
 </head>
 <body>
- 
-	<form>
-		<div class="card">
-		  <div class="container">
-                      <h2 align="center"><b><u>Enter User Details</u></b></h2>
-		    <br>
+    <div class="card">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-line"></div>
+                <div class="progress-step active">1</div>
+                <div class="progress-step">2</div>
+                <div class="progress-step">3</div>
+            </div>
 
+            <!-- Step 1: Authentication -->
+            <div class="form-step active" id="step1">
+                <h2>Let's Begin Your Adventure! 🚀</h2>
+                <form id="authForm">
+                    <label>Your Email</label>
+                    <input class="textbox" type="email" id="email" placeholder="Type your email here">
+                    
+                    <label>Create a Secret Password</label>
+                    <input class="textbox" type="password" id="password" placeholder="Make it super secret!">
+                    
+                    <label>Type it Again</label>
+                    <input class="textbox" type="password" id="password2" placeholder="Just to make sure!">
+                    
+                    <div class="button-group">
+                        <div></div>
+                        <button type="button" class="btn_next" onclick="nextStep(1)">Next</button>
+                    </div>
+                </form>
+            </div>
 
+            <!-- Step 2: Basic Details -->
+            <div class="form-step" id="step2">
+                <h2>Tell Us About Yourself! 🌈</h2>
+                <form id="basicDetailsForm">
+                    <label>Your Name</label>
+                    <input class="textbox" type="text" id="username" placeholder="What should we call you?">
+                    
+                    <label>Phone Number</label>
+                    <input class="textbox" type="tel" id="moblileno" placeholder="Your parent's phone number">
+                    
+                    <label>Are You a Boy or Girl?</label>
+                    <select class="textbox" id="gender">
+                        <option value="">Pick one!</option>
+                        <option value="Male">Boy</option>
+                        <option value="Female">Girl</option>
+                    </select>
+                    
+                    <div class="button-group">
+                        <button type="button" class="btn_prev" onclick="prevStep(2)">Back</button>
+                        <button type="button" class="btn_next" onclick="nextStep(2)">Next</button>
+                    </div>
+                </form>
+            </div>
 
-			<form id="registrationForm"></form>   <!--1-->
-			Email ID :<br>
-            <input class="textbox" placeholder="Enter Your Email"  id="email" style="width: 313px;" >
+            <!-- Step 3: Additional Details -->
+            <div class="form-step" id="step3">
+                <h2>Almost There! 🎯</h2>
+                <form id="additionalDetailsForm">
+                    <label>Your Picture</label>
+                    <input class="textbox" type="file" id="photo" accept="image/*">
+                    
+                    <label>Where Do You Live?</label>
+                    <input class="textbox" id="address" placeholder="Your home address">
+                    
+                    <label>What Type of Hero Are You?</label>
+                    <select class="textbox" id="profession">
+                        <option value="user">Super Kid</option>
+                        <option value="user">Wonder Kid</option>
+                        <option value="user">Star Kid</option>
+                    </select>
+                    
+                    <div class="button-group">
+                        <button type="button" class="btn_prev" onclick="prevStep(3)">Back</button>
+                        <button type="button" class="btn_signin" onclick="registerUser()">Join Us!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Decorative background mascot -->
+        <svg class="mascot" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="#4a90e2"/>
+            <circle cx="35" cy="40" r="5" fill="white"/>
+            <circle cx="65" cy="40" r="5" fill="white"/>
+            <path d="M 35 60 Q 50 70 65 60" stroke="white" fill="none" stroke-width="3"/>
+        </svg>
+    </div>
 
-			 <label for="pwd">Create password:</label>
-			 <input type="password" id="password" name="password" required>
-			
-			Full Name :<input class="textbox" type="text" id="username" name="name" placeholder="Enter Your Full Name" size="35">
-			
-			<br>
-			<br>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+    <script src="patient.js"></script>
 
+    <script>
+        function nextStep(currentStep) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + (currentStep + 1)).classList.add('active');
+            document.querySelectorAll('.progress-step')[currentStep].classList.add('active');
+        }
 
-			<select class="textbox"  id="profession" name="Qualifications" style="width: 322px">
-				<option value="user">User</option>			
-			</select>
-
-			<br>
-			<br>
-			Age :
-			<br><input class="textbox" id="age" type="text" id="age" name="name" placeholder="Enter Your Age" size="35">
-			<br>
-			Weight :
-			<br><input class="textbox"  type="text" id="weight" name="name" placeholder="Enter Your Weight" size="35">
-			<br>
-
-			
-			 <br> 
-
-			 <br>
-			  <label for="pwd">Confirm password:</label>
-			 <input type="password" id="password2" name="pwd" required>
-			 <br>  <br>
-			<br>
-			<input class="textbox" id="address" placeholder="Enter Your Address" style="width: 313px;">
-			<br>
-		
-		    Mobile No: <input class="textbox" id="moblileno" type="text" name="moblieno" placeholder="Enter Your Mobile No" size="35">
-		    <br>
-
-			<select name="gender" id="gender">
-				<option value="Male">Select Gender</option>
-				<option value="Male">Male</option>
-				<option value="Female">Female</option>
-			</select>
-           <br>
-
-		
-			<input class="btn_signin" id="register" onclick="registerUser()" type="button" name="signUp" value="Sign Up">	
-			
-          
-
-
-		</div>
-	</div>
-
-      
-
-</form>
-
-</form>  	
-
-<script  src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
-
- <script src="patient.js"></script>
+        function prevStep(currentStep) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + (currentStep - 1)).classList.add('active');
+            document.querySelectorAll('.progress-step')[currentStep - 1].classList.remove('active');
+        }
+    </script>
 </body>
-
-
 </html>
