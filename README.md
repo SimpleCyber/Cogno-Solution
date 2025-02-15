@@ -1,6 +1,6 @@
-# Cogno Solutions
+# Cogno Solution
 
-## Welcome to Cogno Solutions
+## Welcome to Cogno Solution
 
 ### Overview
 
