@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://cogno-solutions.vercel.app/</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/aboutuspage.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/CognoGames/colourgame/true-color.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/CognoGames/shapegame/rush-back.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/CognoGames/matchinggame/index.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/CognoGames/memorygame/rtw.html</loc>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/handrawtest.html</loc>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://cogno-solutions.vercel.app/mocatest.html</loc>
+        <priority>0.6</priority>
+    </url>
+</urlset>
