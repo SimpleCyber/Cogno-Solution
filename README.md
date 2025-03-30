@@ -12,6 +12,7 @@ Cogno Solutions is a comprehensive platform dedicated to aiding individuals deal
 
 In the right-hand upper corner, you will find a language translation button that allows you to convert the website into multiple languages, making it accessible to a diverse audience.
 
+
 #### Navigation Bar
 
 - **Home**: The landing page of our website.
